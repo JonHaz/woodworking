@@ -1,0 +1,210 @@
+<meta charset="utf-8">
+<title>3-Foot Cubby Bench — 2×4 Cut Diagram</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  :root{
+    --paper:#FBFAF7;--ink:#171512;--graphite:#6E6860;--rule:#DED8CE;--blue:#0B5C97;--good:#3C6E47;--warn:#B4471C;
+    --rail:#C9A063;--rung:#DCEAF5;--waste:#ECEAE4;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:16px;line-height:1.5}
+  .sheet{max-width:900px;margin:0 auto;padding:44px 40px 72px}
+
+  .titleblock{border:2px solid var(--ink);display:grid;grid-template-columns:1fr auto}
+  .titleblock .main{padding:20px 24px 18px;border-right:2px solid var(--ink)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 8px}
+  h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:40px;line-height:.98;text-transform:uppercase;margin:0}
+  h1 span{color:var(--graphite);font-weight:500}
+  .titleblock .meta{display:grid;grid-template-rows:repeat(3,1fr);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .titleblock .meta div{padding:9px 18px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;min-width:180px}
+  .titleblock .meta div:last-child{border-bottom:none}
+  .titleblock .meta b{font-weight:600;color:var(--graphite);letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+  .titleblock .meta span{font-size:15px}
+
+  .lede{margin:18px 2px 4px;font-size:16px;max-width:66ch}
+
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 4px;font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:16px;height:16px;border:1.4px solid var(--ink);border-radius:2px;display:inline-block}
+
+  h2.sec{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin:40px 0 0;padding-bottom:7px;border-bottom:2px solid var(--ink)}
+
+  figure{margin:12px 0 6px;background:#fff;border:1px solid var(--rule);padding:14px}
+  figure svg{width:100%;height:auto;display:block}
+  figcaption{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--graphite);margin-top:8px;text-transform:uppercase}
+
+  .barlabel{font-family:"IBM Plex Mono",monospace;font-size:12px;fill:var(--ink)}
+  .barlabel .m{fill:var(--graphite)}
+  .pcname{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:10px;fill:var(--ink)}
+  .pcname.w{fill:var(--graphite);font-weight:500}
+  .dim{stroke:var(--blue);stroke-width:1}
+  .dtx{fill:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:11px}
+  .badge{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:13px;fill:#fff}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  caption{text-align:left;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:5px}
+  th,td{text-align:center;padding:7px 10px;border-bottom:1px solid var(--rule)}
+  th:first-child,td:first-child{text-align:left}
+  th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+  td{font-family:"IBM Plex Mono",monospace}
+  td.d{white-space:nowrap}
+  tr.have td{background:#EDF3ED}
+  tr.tot td{border-top:2px solid var(--ink);font-weight:700}
+  .pill{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.06em}
+  .pill.have{background:#DCE9DD;color:var(--good)}
+  .pill.buy{background:#F7E3D9;color:var(--warn)}
+
+  .callout{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:#E6EFF6;border-left:3px solid var(--blue);padding:9px 13px;margin:14px 0 2px;color:#0a3f68}
+  .callout.warn{background:#F7E9E2;border-left-color:var(--warn);color:#7d3413}
+  .foot{margin-top:40px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--graphite);letter-spacing:.05em;display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:14px;flex-wrap:wrap;gap:8px}
+
+  @media (max-width:620px){
+    .sheet{padding:26px 16px 56px}
+    h1{font-size:30px}
+    .titleblock{grid-template-columns:1fr}
+    .titleblock .main{border-right:none;border-bottom:2px solid var(--ink)}
+    .titleblock .meta div{min-width:0}
+  }
+  @media print{body{background:#fff}.sheet{max-width:none;padding:0 8px}figure,table{page-break-inside:avoid}h2.sec{page-break-after:avoid}}
+</style>
+
+<div class="sheet">
+
+  <div class="titleblock">
+    <div class="main">
+      <p class="eyebrow">2×4 Cut Diagram · 3-Ft Set</p>
+      <h1>Base Lumber <span>· 8 on hand + 3 new</span></h1>
+    </div>
+    <div class="meta">
+      <div><b>Yields</b><span>12 rails · 18 rungs</span></div>
+      <div><b>Builds</b><span>6 base frames</span></div>
+      <div><b>Cut on edge</b><span>3½ in tall</span></div>
+    </div>
+  </div>
+
+  <p class="lede">All base parts for the six 3-foot benches. Your eight 54⅛ offcuts each give one rail + one rung; three new 8-ft sticks make up the rest. Every part is 2×4 on edge (3½ in tall). Allow ~⅛-in kerf per cut.</p>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--rail)"></i>Rail · 33 in</span>
+    <span><i class="sw" style="background:var(--rung)"></i>Rung · 11 in</span>
+    <span><i class="sw" style="background:var(--waste)"></i>Waste</span>
+  </div>
+
+  <!-- ============================ CUT BARS ============================ -->
+  <h2 class="sec">Cutting the sticks</h2>
+  <figure>
+    <svg viewBox="0 0 520 300" role="img" aria-label="Cut layout for on-hand offcuts and three new 2x4 sticks">
+
+      <!-- ===== ON HAND: offcut ×8 ===== -->
+      <text class="barlabel" x="44" y="42">ON HAND · <tspan style="font-weight:600">8 × offcut</tspan> · 54⅛ in <tspan class="m">— cut 33 + 11 each</tspan></text>
+      <!-- badge -->
+      <rect x="300" y="30" width="34" height="17" rx="3" fill="var(--good)"/>
+      <text class="badge" x="317" y="43" text-anchor="middle">×8</text>
+      <!-- length dim -->
+      <line class="dim" x1="44" y1="52" x2="287.6" y2="52"/><line class="dim" x1="44" y1="49" x2="44" y2="55"/><line class="dim" x1="287.6" y1="49" x2="287.6" y2="55"/>
+      <text class="dtx" x="165" y="49" text-anchor="middle">54⅛ in</text>
+      <!-- bar -->
+      <rect x="44" y="60" width="148.5" height="30" fill="var(--rail)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="192.5" y="60" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="242" y="60" width="45.6" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text class="pcname" x="118" y="79" text-anchor="middle">RAIL · 33</text>
+      <text class="pcname" x="217" y="79" text-anchor="middle">RUNG·11</text>
+      <text class="pcname w" x="264" y="79" text-anchor="middle">~10</text>
+
+      <!-- ===== NEW STICK ×2 ===== -->
+      <text class="barlabel" x="44" y="132">BUY · <tspan style="font-weight:600">new stick ×2</tspan> · 96 in <tspan class="m">— cut 33 + 33 + 11 + 11</tspan></text>
+      <rect x="300" y="120" width="34" height="17" rx="3" fill="var(--warn)"/>
+      <text class="badge" x="317" y="133" text-anchor="middle">×2</text>
+      <line class="dim" x1="44" y1="142" x2="476" y2="142"/><line class="dim" x1="44" y1="139" x2="44" y2="145"/><line class="dim" x1="476" y1="139" x2="476" y2="145"/>
+      <text class="dtx" x="260" y="139" text-anchor="middle">96 in</text>
+      <rect x="44" y="150" width="148.5" height="30" fill="var(--rail)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="192.5" y="150" width="148.5" height="30" fill="var(--rail)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="341" y="150" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="390.5" y="150" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="440" y="150" width="36" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text class="pcname" x="118" y="169" text-anchor="middle">RAIL · 33</text>
+      <text class="pcname" x="266.75" y="169" text-anchor="middle">RAIL · 33</text>
+      <text class="pcname" x="365.75" y="169" text-anchor="middle">RUNG·11</text>
+      <text class="pcname" x="415.25" y="169" text-anchor="middle">RUNG·11</text>
+      <text class="pcname w" x="458" y="169" text-anchor="middle">~8</text>
+
+      <!-- ===== NEW STICK ×1 (rungs) ===== -->
+      <text class="barlabel" x="44" y="222">BUY · <tspan style="font-weight:600">new stick ×1</tspan> · 96 in <tspan class="m">— cut 11 × 6</tspan></text>
+      <rect x="300" y="210" width="34" height="17" rx="3" fill="var(--warn)"/>
+      <text class="badge" x="317" y="223" text-anchor="middle">×1</text>
+      <line class="dim" x1="44" y1="232" x2="476" y2="232"/><line class="dim" x1="44" y1="229" x2="44" y2="235"/><line class="dim" x1="476" y1="229" x2="476" y2="235"/>
+      <text class="dtx" x="260" y="229" text-anchor="middle">96 in</text>
+      <rect x="44" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="93.5" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="143" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="192.5" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="242" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="291.5" y="240" width="49.5" height="30" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="341" y="240" width="135" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text class="pcname" x="68.75" y="259" text-anchor="middle">11</text>
+      <text class="pcname" x="118.25" y="259" text-anchor="middle">11</text>
+      <text class="pcname" x="167.75" y="259" text-anchor="middle">11</text>
+      <text class="pcname" x="217.25" y="259" text-anchor="middle">11</text>
+      <text class="pcname" x="266.75" y="259" text-anchor="middle">11</text>
+      <text class="pcname" x="316.25" y="259" text-anchor="middle">11</text>
+      <text class="pcname w" x="408" y="259" text-anchor="middle">waste · room for 2 more rungs</text>
+    </svg>
+    <figcaption>Fig. 1 — Each of the eight offcuts: one 33-in rail + one 11-in rung. Two new sticks: two rails + two rungs each. One new stick: six rungs.</figcaption>
+  </figure>
+
+  <!-- ============================ TALLY ============================ -->
+  <table>
+    <thead><tr><th>Source</th><th>Qty</th><th>Cut each</th><th>Rails (33)</th><th>Rungs (11)</th></tr></thead>
+    <tbody>
+      <tr class="have"><td>Offcut 54⅛ <span class="pill have">have</span></td><td>8</td><td class="d">33 + 11</td><td>8</td><td>8</td></tr>
+      <tr><td>New stick A <span class="pill buy">buy</span></td><td>2</td><td class="d">33+33+11+11</td><td>4</td><td>4</td></tr>
+      <tr><td>New stick B <span class="pill buy">buy</span></td><td>1</td><td class="d">11 × 6</td><td>0</td><td>6</td></tr>
+      <tr class="tot"><td>Total</td><td>11</td><td class="d">—</td><td>12</td><td>18</td></tr>
+      <tr><td>Needed (6 bases)</td><td>—</td><td class="d">—</td><td>12</td><td>18</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================ BASE ASSEMBLY ============================ -->
+  <h2 class="sec">How the cuts assemble · one base</h2>
+  <figure>
+    <svg viewBox="0 0 520 210" role="img" aria-label="One base ladder frame, top view">
+      <!-- footprint 36x17 dashed, scale 9, origin (70,26) -->
+      <rect x="70" y="26" width="324" height="153" fill="none" stroke="var(--graphite)" stroke-width="1" stroke-dasharray="5 4"/>
+      <text class="pcname w" x="232" y="20" text-anchor="middle">bench footprint 36 × 17 (dashed)</text>
+      <!-- base 33x14 inset 1.5 => x83.5..380.5, y39.5..165.5 -->
+      <!-- front & back rails (33 long, 1.5 wide=13.5) -->
+      <rect x="83.5" y="39.5" width="297" height="13.5" fill="var(--rail)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="83.5" y="152" width="297" height="13.5" fill="var(--rail)" stroke="var(--ink)" stroke-width="1.4"/>
+      <!-- rungs (11 long front-back = 99px, 1.5 wide) : left, center, right -->
+      <rect x="83.5" y="53" width="13.5" height="99" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="225.25" y="53" width="13.5" height="99" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="367" y="53" width="13.5" height="99" fill="var(--rung)" stroke="var(--ink)" stroke-width="1.4"/>
+      <!-- labels -->
+      <text class="pcname" x="232" y="48" text-anchor="middle">RAIL · 33</text>
+      <text class="pcname" x="232" y="161" text-anchor="middle">RAIL · 33</text>
+      <text class="pcname" x="150" y="106" text-anchor="middle">rung 11</text>
+      <text class="pcname" x="312" y="106" text-anchor="middle">rung 11</text>
+      <!-- dims -->
+      <line class="dim" x1="83.5" y1="188" x2="380.5" y2="188"/><line class="dim" x1="83.5" y1="184" x2="83.5" y2="192"/><line class="dim" x1="380.5" y1="184" x2="380.5" y2="192"/>
+      <text class="dtx" x="232" y="200" text-anchor="middle">33 in</text>
+      <line class="dim" x1="404" y1="39.5" x2="404" y2="165.5"/><line class="dim" x1="400" y1="39.5" x2="408" y2="39.5"/><line class="dim" x1="400" y1="165.5" x2="408" y2="165.5"/>
+      <text class="dtx" x="420" y="106" transform="rotate(90 420 106)" text-anchor="middle">14 in</text>
+      <!-- inset -->
+      <line class="dim" x1="70" y1="102" x2="83.5" y2="102"/><line class="dim" x1="70" y1="98" x2="70" y2="106"/><line class="dim" x1="83.5" y1="98" x2="83.5" y2="106"/>
+      <text class="dtx" x="56" y="105">1.5</text>
+    </svg>
+    <figcaption>Fig. 2 — One base = 2 rails + 3 rungs (2 ends + 1 center), 2×4 on edge, glued + 3-in screws. Inset 1.5 in all around → 33 × 14 footprint that nests for stacking.</figcaption>
+  </figure>
+
+  <div class="callout">Six bases use 12 rails + 18 rungs — exactly the tally above, with no parts left over (new stick 3 still has room for 2 spare rungs if you miscut one). Screw each base down through the bottom shelf from inside the cubbies; countersink so nothing snags.</div>
+
+  <div class="callout warn">WANT 2 NEW STICKS INSTEAD OF 3? Cut ten rungs from your long 101½ × 1½ × 1½ 2×2s and skip new stick B; sticks A (×2) then supply all rails. Trade-off: 2×2 rungs sit ~2 in below the shelf, so they stop backing up the shelf mid-span (sides and dividers still carry seating load from above). Fine for this base — a small step off the drawing.</div>
+
+  <div class="foot">
+    <span>3-Ft Set · 2×4 cut diagram</span>
+    <span>8 offcuts + 3 sticks → 6 bases</span>
+    <span>Plywood cuts → plywood cut diagram</span>
+  </div>
+
+</div>
