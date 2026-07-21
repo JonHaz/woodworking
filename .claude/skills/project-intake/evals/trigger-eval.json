@@ -1,0 +1,19 @@
+{
+  "skill": "project-intake",
+  "description": "Trigger evals: queries that should and should not activate project-intake.",
+  "positive": [
+    "I want a bench for the mudroom — not sure how big.",
+    "Thinking about building some garage shelves, where do I start?",
+    "Could I build a coffee table with what I have?",
+    "Let's plan a new project — storage for the hall closet.",
+    "I have a rough idea for a toy chest, help me scope it."
+  ],
+  "negative": [
+    "Design the mudroom bench at 40 by 16 inches now.",
+    "Does this cut list close?",
+    "I finished Phase 1 — log it and update materials.",
+    "Draw the cut diagram for this design.",
+    "Give me the assembly steps for the bench."
+  ],
+  "notes": "Positives are vague, unscoped ideas needing a brief + feasibility check. Negatives are already-scoped design work (build-planner), verification (cut-verifier), close-out (shop-close-out), or rendering (guide-renderer)."
+}
