@@ -5,24 +5,30 @@ session that touches it.
 
 ## Skills and agents (the build pipeline)
 
-Work flows through five focused capabilities, not one monolith. Route to the
+Work flows through focused capabilities, not one monolith. Route to the
 right one for the stage:
 
 | Stage | Capability | Kind | Use when |
 |---|---|---|---|
+| FOUNDATION | `shop-inventory` | skill + script | Confirm what tools and materials Jon actually owns; resolve `inferred` entries. |
 | PLAN | `project-intake` | skill | A vague idea needs scoping into a feasible brief. |
 | DESIGN | `build-planner` | skill (orchestrator) | Turn a scoped build into a dimensioned design. |
 | DESIGN | `cut-verifier` | agent + script | Confirm the numbers close before anything is presented. |
 | BUILD | `guide-renderer` | agent | Render the house-style print-ready HTML/SVG guides. |
+| BUILD | `build-companion` | skill | Coach the build at the bench; recover from off-spec cuts. |
 | LOOP | `shop-close-out` | skill | Feed a finished build back into the knowledge base. |
 
 Pipeline order: **project-intake → build-planner → cut-verifier (gate) →
-guide-renderer → shop-close-out.** `build-planner` is the orchestrator: it emits
+guide-renderer → build-companion → shop-close-out**, all resting on the
+`shop-inventory` foundation. `build-planner` is the orchestrator: it emits
 a structured design spec (schema:
 `.claude/skills/cut-verifier/references/spec-schema.md`), gates it through
 `cut-verifier` (never present a cut list the verifier has not passed), then
-delegates guides to `guide-renderer`. The verifier's script is the source of
-truth for cut-list math — do not hand-estimate stack-ups or yields.
+delegates guides to `guide-renderer`. `build-companion` then coaches the physical
+build, delegating any off-spec recovery math back to `cut-verifier`. The
+verifier's script is the source of truth for cut-list math — do not hand-estimate
+stack-ups or yields. `shop-inventory` keeps `tools.md`/`materials-on-hand.md`
+honest so the "confirmed tools only" rule below has teeth.
 
 ## Before generating ANY build plan, cut list, or design
 
@@ -30,7 +36,8 @@ Read, in order:
 
 1. `knowledge/shop/tools.md` — design only around tools marked `confirmed`.
    If a better approach needs an unowned tool, offer it as a clearly labeled
-   alternative, never as the default plan.
+   alternative, never as the default plan. If the entries you need are still
+   `inferred` (unverified), run `shop-inventory` to confirm them with Jon first.
 2. `knowledge/shop/materials-on-hand.md` — allocate on-hand stock **before**
    adding anything to a shopping list. State which on-hand pieces the plan
    consumes.

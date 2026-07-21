@@ -77,7 +77,11 @@ base after a build — that is `shop-close-out`.
 ## Next steps
 
 - **Before designing**, if the request is a vague idea rather than a scoped build, run
-  `project-intake` first to produce a brief and check feasibility.
+  `project-intake` first to produce a brief and check feasibility. If the tools the
+  design leans on are still `inferred`, run `shop-inventory` to confirm them.
 - **Before presenting**, always gate on `cut-verifier`.
+- **At the bench**, once the guides are rendered and Jon starts building, `build-companion`
+  coaches the physical build and handles off-spec cuts (it delegates recovery math back
+  to `cut-verifier`).
 - **After a build milestone**, run `shop-close-out` to update materials, lessons, the
   project concept doc, and the log.

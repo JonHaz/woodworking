@@ -1,0 +1,21 @@
+{
+  "skill": "shop-inventory",
+  "description": "Trigger evals: queries that should and should not activate shop-inventory.",
+  "positive": [
+    "Which tools are you still just guessing that I own?",
+    "Let's confirm my tool list — I want to lock it down.",
+    "I own a DeWalt table saw and a random-orbit sander; mark those confirmed.",
+    "Add a router to my shop inventory.",
+    "I have six bar clamps and a jigsaw now.",
+    "Re-measure and update my 2x4 offcuts.",
+    "Took stock of the shop today — let's update what I actually have."
+  ],
+  "negative": [
+    "I finished the benches — run the post-build close-out.",
+    "Design a mudroom bench around my tools.",
+    "Does this cut list close on 36 inches?",
+    "Help me scope a new garage-shelf idea.",
+    "Walk me through the glue-up step at the bench."
+  ],
+  "notes": "Positives are the deliberate tool/material census: confirming inferred entries, adding a newly acquired tool, re-measuring stock. Negatives belong to shop-close-out (post-build feedback ritual), build-planner (design), cut-verifier (numbers), project-intake (scoping), or build-companion (at-the-bench execution). The boundary with shop-close-out: this skill maintains the standing inventory truth; shop-close-out runs the build-linked delta."
+}
