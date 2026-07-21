@@ -1,0 +1,353 @@
+<meta charset="utf-8">
+<title>3-Foot Cubby Bench — One-Bench Assembly Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  :root{
+    --paper:#FBFAF7;--ink:#171512;--graphite:#6E6860;--rule:#DED8CE;--blue:#0B5C97;--blue-soft:#E6EFF6;
+    --wood:#CDAE7E;--wood-soft:#F1E7D4;--warn:#B4471C;--good:#3C6E47;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:16px;line-height:1.55}
+  .sheet{max-width:860px;margin:0 auto;padding:44px 40px 76px}
+
+  .titleblock{border:2px solid var(--ink);display:grid;grid-template-columns:1fr auto}
+  .titleblock .main{padding:20px 24px 18px;border-right:2px solid var(--ink)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 8px}
+  h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:42px;line-height:.98;text-transform:uppercase;margin:0}
+  h1 span{color:var(--graphite);font-weight:500}
+  .titleblock .meta{display:grid;grid-template-rows:repeat(3,1fr);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .titleblock .meta div{padding:9px 18px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;min-width:184px}
+  .titleblock .meta div:last-child{border-bottom:none}
+  .titleblock .meta b{font-weight:600;color:var(--graphite);letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+  .titleblock .meta span{font-size:15px}
+
+  .lede{margin:18px 2px 4px;font-size:17px;max-width:64ch}
+
+  h2.sec{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin:46px 0 0;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+
+  .prep{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+  @media(max-width:640px){.prep{grid-template-columns:1fr;gap:0}}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14.5px}
+  caption{text-align:left;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:5px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule)}
+  td.q,th.q{text-align:center;font-family:"IBM Plex Mono",monospace;width:44px}
+  td.d{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+  th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+  tbody tr:last-child td{border-bottom:none}
+  ul.tools{margin:8px 0;padding-left:18px;font-size:14.5px}
+  ul.tools li{margin:4px 0}
+
+  .step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid var(--rule);page-break-inside:avoid}
+  .num{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;color:var(--blue);padding-top:4px;border-top:3px solid var(--blue)}
+  .step h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:27px;text-transform:uppercase;margin:0 0 8px;line-height:1}
+  .step p{margin:0 0 10px}
+  .callout{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--blue-soft);border-left:3px solid var(--blue);padding:9px 13px;margin:12px 0 2px;color:#0a3f68}
+  .callout.warn{background:#F7E9E2;border-left-color:var(--warn);color:#7d3413}
+  .callout.good{background:#EAF2EB;border-left-color:var(--good);color:#2c4f34}
+
+  figure{margin:16px 0 4px;background:#fff;border:1px solid var(--rule);padding:14px}
+  figure svg{width:100%;height:auto;display:block}
+  figcaption{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--graphite);margin-top:10px;text-transform:uppercase}
+
+  .wd{fill:var(--wood-soft);stroke:var(--ink);stroke-width:1.6}
+  .wd2{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+  .bl{fill:var(--blue-soft);stroke:var(--ink);stroke-width:1.6}
+  .thin{fill:none;stroke:var(--graphite);stroke-width:1}
+  .dim{stroke:var(--blue);stroke-width:1}
+  .dtx{fill:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .lbx{fill:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .lbx.mut{fill:var(--graphite)}
+  .lead{stroke:var(--graphite);stroke-width:.8}
+  .arw{stroke:var(--warn);stroke-width:2;fill:none}
+
+  .foot{margin-top:42px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--graphite);letter-spacing:.05em;display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:14px;flex-wrap:wrap;gap:8px}
+
+  @media (max-width:620px){
+    .sheet{padding:26px 16px 56px}
+    h1{font-size:32px}
+    .titleblock{grid-template-columns:1fr}
+    .titleblock .main{border-right:none;border-bottom:2px solid var(--ink)}
+    .titleblock .meta div{min-width:0}
+    .step{grid-template-columns:1fr;gap:6px}
+    .num{border-top:none;padding-top:0}
+  }
+  @media print{body{background:#fff}.sheet{max-width:none;padding:0 8px}.step,figure,table{page-break-inside:avoid}h2.sec{page-break-after:avoid}}
+</style>
+
+<div class="sheet">
+
+  <div class="titleblock">
+    <div class="main">
+      <p class="eyebrow">Assembly Guide · One Bench</p>
+      <h1>3-Foot Cubby Bench</h1>
+    </div>
+    <div class="meta">
+      <div><b>Starts from</b><span>cut, edge-finished parts</span></div>
+      <div><b>Finished</b><span>36 × 17 × 18.5 in</span></div>
+      <div><b>Time</b><span>~2–3 hr + glue cure</span></div>
+    </div>
+  </div>
+
+  <p class="lede">Assembly only — this assumes every part is already cut to the sizes in the cut diagrams and the show edges are filled and sanded. Work on a flat surface. Pre-drill and countersink all screw holes so the plywood doesn't split at edges.</p>
+
+  <!-- ===================== BEFORE YOU START ===================== -->
+  <h2 class="sec">Before you start</h2>
+  <div class="prep">
+    <div>
+      <table>
+        <caption>Parts · one bench</caption>
+        <thead><tr><th>Part</th><th class="q">Qty</th><th>Size</th></tr></thead>
+        <tbody>
+          <tr><td>Top</td><td class="q">1</td><td class="d">36 × 17</td></tr>
+          <tr><td>Bottom shelf</td><td class="q">1</td><td class="d">34.5 × 17</td></tr>
+          <tr><td>Side panel</td><td class="q">2</td><td class="d">14.25 × 17</td></tr>
+          <tr><td>Divider</td><td class="q">2</td><td class="d">13.5 × 16.25</td></tr>
+          <tr><td>Rear stretcher</td><td class="q">2</td><td class="d">34.5 × 3</td></tr>
+          <tr><td>Base rail</td><td class="q">2</td><td class="d">33 (2×4)</td></tr>
+          <tr><td>Base rung</td><td class="q">3</td><td class="d">11 (2×4)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <caption>Hardware</caption>
+        <thead><tr><th>Item</th><th class="q">Approx</th></tr></thead>
+        <tbody>
+          <tr><td>Wood screws, 1¼–2 in</td><td class="q">~34</td></tr>
+          <tr><td>Construction screws, 3 in (base)</td><td class="q">~12</td></tr>
+          <tr><td>Wood glue</td><td class="q">—</td></tr>
+          <tr><td>Rubber pads</td><td class="q">4–6</td></tr>
+        </tbody>
+      </table>
+      <ul class="tools">
+        <li><b>Tools:</b> drill/driver, countersink bit, square, tape, clamps, spacer block (11 in), pencil.</li>
+        <li>Optional: pocket-hole jig for cleaner top attachment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== STEPS ===================== -->
+  <h2 class="sec">Assembly sequence</h2>
+
+  <div class="step">
+    <div class="num">01</div>
+    <div>
+      <h3>Lay out &amp; dry-fit</h3>
+      <p>Set out all parts. Stand the two sides on edge and slot the bottom shelf between them — it should measure <b>36 in</b> across the outside. Mark screw lines, then pre-drill and countersink. A quick dry-fit now catches a mis-cut before glue is involved.</p>
+      <div class="callout">Keep the better face of each panel facing out/into the cubbies. Mark the show faces with tape so they stay consistent.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">02</div>
+    <div>
+      <h3>Build the base ladder</h3>
+      <p>Lay the two 33-in rails parallel, drop in the three 11-in rungs (two at the ends, one centered), all 2×4 <b>on edge</b>. Glue and drive 3-in screws through the rails into each rung end. Check it's square before the glue sets.</p>
+      <figure>
+        <svg viewBox="0 0 520 200" role="img" aria-label="Base ladder frame, top view">
+          <rect x="70" y="24" width="324" height="150" fill="none" stroke="var(--graphite)" stroke-width="1" stroke-dasharray="5 4"/>
+          <text class="lbx mut" x="232" y="18" text-anchor="middle">33 × 14 base · inset 1.5 all around</text>
+          <rect class="wd2" x="83.5" y="37" width="297" height="13.5"/>
+          <rect class="wd2" x="83.5" y="147" width="297" height="13.5"/>
+          <rect class="wd2" x="83.5" y="50.5" width="13.5" height="96.5"/>
+          <rect class="wd2" x="225.25" y="50.5" width="13.5" height="96.5"/>
+          <rect class="wd2" x="367" y="50.5" width="13.5" height="96.5"/>
+          <text class="lbx" x="232" y="46" text-anchor="middle">RAIL 33</text>
+          <text class="lbx" x="232" y="158" text-anchor="middle">RAIL 33</text>
+          <text class="lbx mut" x="155" y="102" text-anchor="middle">rung 11</text>
+          <text class="lbx mut" x="312" y="102" text-anchor="middle">rung 11</text>
+          <line class="dim" x1="83.5" y1="186" x2="380.5" y2="186"/><line class="dim" x1="83.5" y1="182" x2="83.5" y2="190"/><line class="dim" x1="380.5" y1="182" x2="380.5" y2="190"/>
+          <text class="dtx" x="232" y="198" text-anchor="middle">33 in</text>
+        </svg>
+        <figcaption>Fig. 1 — Step 2. Ladder base: 2 rails + 3 rungs, 2×4 on edge.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">03</div>
+    <div>
+      <h3>Shelf between the sides</h3>
+      <p>Stand the sides up, run a bead of glue on the shelf ends, and set the 34.5-in shelf between them — flush at the <b>bottom</b> and flush at the <b>front</b>. Screw through the outside of each side into the shelf edge. This box references everything after it.</p>
+      <figure>
+        <svg viewBox="0 0 520 210" role="img" aria-label="Bottom shelf captured between the two sides">
+          <rect class="wd2" x="70" y="30" width="16" height="150"/>
+          <rect class="wd2" x="418" y="30" width="16" height="150"/>
+          <rect class="wd" x="86" y="164" width="332" height="16"/>
+          <text class="lbx mut" x="252" y="176" text-anchor="middle">bottom shelf 34.5</text>
+          <g class="dim">
+            <line x1="78" y1="172" x2="70" y2="172"/><line x1="86" y1="172" x2="94" y2="172"/>
+            <line x1="426" y1="172" x2="434" y2="172"/><line x1="410" y1="172" x2="418" y2="172"/>
+          </g>
+          <text class="dtx" x="252" y="24" text-anchor="middle">flush front · flush bottom</text>
+          <text class="lbx mut" x="78" y="110" text-anchor="middle" transform="rotate(-90 78 110)">side</text>
+          <text class="lbx mut" x="426" y="110" text-anchor="middle" transform="rotate(90 426 110)">side</text>
+        </svg>
+        <figcaption>Fig. 2 — Step 3. Shelf sits between the sides; the outside faces stay flush for side-by-side placement.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">04</div>
+    <div>
+      <h3>Rear bottom stretcher</h3>
+      <p>Set one 34.5 × 3 stretcher on the shelf at the back, standing on edge, flush with the rear edges of the sides. Glue and screw through the sides into its ends. It stiffens the box and leaves a 2¼-in lip that keeps items from sliding out the open back.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">05</div>
+    <div>
+      <h3>Set the two dividers</h3>
+      <p>Cut a scrap <b>spacer 11 in wide</b>. Butt it against the left inside face, stand the first divider tight to it, and fasten down through the shelf. Move the spacer to the other side of that divider and repeat for the second. Three equal 11-in cubbies, no fractions.</p>
+      <figure>
+        <svg viewBox="0 0 520 200" role="img" aria-label="Divider spacing across the shelf">
+          <line x1="70" y1="150" x2="450" y2="150" stroke="var(--ink)" stroke-width="2.4"/>
+          <rect class="wd2" x="70" y="70" width="8" height="80"/>
+          <rect class="wd2" x="442" y="70" width="8" height="80"/>
+          <rect class="wd2" x="194" y="70" width="8" height="80"/>
+          <rect class="wd2" x="311" y="70" width="8" height="80"/>
+          <rect class="bl" x="82" y="86" width="108" height="60"/>
+          <text class="dtx" x="136" y="120" text-anchor="middle">spacer 11</text>
+          <g class="dim">
+            <line x1="202" y1="176" x2="311" y2="176"/><line x1="202" y1="172" x2="202" y2="180"/><line x1="311" y1="172" x2="311" y2="180"/>
+            <line x1="319" y1="176" x2="442" y2="176"/><line x1="319" y1="172" x2="319" y2="180"/><line x1="442" y1="172" x2="442" y2="180"/>
+          </g>
+          <text class="dtx" x="256" y="192" text-anchor="middle">11</text>
+          <text class="dtx" x="380" y="192" text-anchor="middle">11</text>
+          <text class="lbx mut" x="260" y="52" text-anchor="middle">two dividers · three equal openings</text>
+        </svg>
+        <figcaption>Fig. 3 — Step 5. The spacer block sets each cubby without measuring marks.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">06</div>
+    <div>
+      <h3>Rear top stretcher</h3>
+      <p>Fit the second 34.5 × 3 stretcher between the sides at the top rear, flush with the back and with the top edges of the sides. Screw through the sides and back into each divider's rear edge. The whole back plane is now tied together — this is what stops the backless bench from racking.</p>
+      <figure>
+        <svg viewBox="0 0 520 280" role="img" aria-label="Side section showing both rear stretchers">
+          <rect class="wd2" x="150" y="34" width="170" height="7.5"/>
+          <rect class="wd" x="150" y="41.5" width="170" height="142.5"/>
+          <rect class="wd2" x="150" y="176.5" width="170" height="7.5"/>
+          <rect class="wd2" x="312.5" y="41.5" width="7.5" height="30"/>
+          <rect class="wd2" x="312.5" y="146.5" width="7.5" height="30"/>
+          <rect class="bl" x="165" y="184" width="140" height="35"/>
+          <text class="lbx mut" x="150" y="240" text-anchor="middle">front (open)</text>
+          <text class="lbx mut" x="320" y="240" text-anchor="middle">back</text>
+          <line class="lead" x1="316" y1="56" x2="372" y2="56"/><text class="dtx" x="376" y="53">rear top stretcher</text>
+          <line class="lead" x1="316" y1="161" x2="372" y2="161"/><text class="dtx" x="376" y="158">rear bottom stretcher</text>
+          <line class="lead" x1="235" y1="180" x2="235" y2="150"/><text class="dtx" x="239" y="150">shelf</text>
+          <line class="lead" x1="235" y1="41.5" x2="235" y2="60"/><text class="dtx" x="239" y="58">top (step 8)</text>
+        </svg>
+        <figcaption>Fig. 4 — Step 6. Both stretchers seated at the back. Carcass should feel rigid now.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">07</div>
+    <div>
+      <h3>Marry the base to the carcass</h3>
+      <p>Turn the carcass upside down. Center the base ladder on the underside of the shelf so <b>1.5 in shows on all four sides</b>, then screw down through the shelf into the rails. Countersink so the heads sit below the cubby floor.</p>
+      <figure>
+        <svg viewBox="0 0 520 200" role="img" aria-label="Base centered under the shelf, inverted">
+          <text class="lbx mut" x="235" y="22" text-anchor="middle">carcass inverted · base centered</text>
+          <!-- shelf (now on top since inverted) -->
+          <rect class="wd" x="90" y="40" width="290" height="14"/>
+          <text class="lbx mut" x="235" y="51" text-anchor="middle">bottom shelf (underside up)</text>
+          <!-- base sitting on it, inset -->
+          <rect class="wd2" x="112" y="54" width="246" height="30"/>
+          <text class="lbx" x="235" y="73" text-anchor="middle">2×4 base 33 × 14</text>
+          <!-- inset arrows -->
+          <g class="dim">
+            <line x1="90" y1="66" x2="112" y2="66"/><line x1="90" y1="62" x2="90" y2="70"/><line x1="112" y1="62" x2="112" y2="70"/>
+            <line x1="358" y1="66" x2="380" y2="66"/><line x1="358" y1="62" x2="358" y2="70"/><line x1="380" y1="62" x2="380" y2="70"/>
+          </g>
+          <text class="dtx" x="101" y="98" text-anchor="middle">1.5</text>
+          <text class="dtx" x="369" y="98" text-anchor="middle">1.5</text>
+          <!-- screw arrows down through shelf into rails -->
+          <g class="arw">
+            <line x1="150" y1="30" x2="150" y2="52"/><path d="M146 46 L150 52 L154 46"/>
+            <line x1="320" y1="30" x2="320" y2="52"/><path d="M316 46 L320 52 L324 46"/>
+          </g>
+          <text class="dtx" x="235" y="126" text-anchor="middle">screw down through shelf into rails</text>
+        </svg>
+        <figcaption>Fig. 5 — Step 7. Equal 1.5-in reveal all around is what lets benches nest when stacked.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">08</div>
+    <div>
+      <h3>Fasten the top</h3>
+      <p>Turn the bench upright. Run glue along the top edges of the sides, dividers, and top stretcher, set the 36 × 17 top on flush all the way around, and drive screws <b>up from inside</b> into it — through each side, both dividers, and the top stretcher. Pocket screws are cleanest here.</p>
+      <figure>
+        <svg viewBox="0 0 520 200" role="img" aria-label="Top fastened with screws driven up from inside">
+          <rect class="wd2" x="70" y="34" width="360" height="10"/>
+          <text class="lbx mut" x="250" y="27" text-anchor="middle">top 36 × 17 · flush all sides</text>
+          <!-- verticals -->
+          <rect class="wd2" x="70" y="44" width="8" height="120"/>
+          <rect class="wd2" x="422" y="44" width="8" height="120"/>
+          <rect class="wd2" x="187" y="44" width="8" height="120"/>
+          <rect class="wd2" x="305" y="44" width="8" height="120"/>
+          <line x1="70" y1="164" x2="430" y2="164" stroke="var(--ink)" stroke-width="1.6"/>
+          <!-- screw arrows up into top -->
+          <g class="arw">
+            <line x1="74" y1="70" x2="74" y2="46"/><path d="M70 52 L74 46 L78 52"/>
+            <line x1="191" y1="70" x2="191" y2="46"/><path d="M187 52 L191 46 L195 52"/>
+            <line x1="309" y1="70" x2="309" y2="46"/><path d="M305 52 L309 46 L313 52"/>
+            <line x1="426" y1="70" x2="426" y2="46"/><path d="M422 52 L426 46 L430 52"/>
+          </g>
+          <text class="dtx" x="250" y="150" text-anchor="middle">screws driven up from inside → into the top</text>
+        </svg>
+        <figcaption>Fig. 6 — Step 8. Mechanical fasteners into the top — it's the handle every lift and stack pulls on.</figcaption>
+      </figure>
+      <div class="callout warn">Don't rely on brads or glue alone for the top. A top that lets go mid-stack is how a bench falls.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">09</div>
+    <div>
+      <h3>Pads, finish &amp; check</h3>
+      <p>Add four to six rubber pads to the base underside. Confirm the bench sits without a wobble and reads square (equal diagonals across the top). Fill and sand the exposed edges, then prime and paint. Set it beside a finished bench to confirm the fronts and tops line up flush.</p>
+      <div class="callout good">SQUARE CHECK: measure corner-to-corner both ways across the top — equal diagonals means it's square. Nudge and clamp before the glue fully cures if they differ.</div>
+    </div>
+  </div>
+
+  <!-- ===================== WRAP ===================== -->
+  <h2 class="sec">Finished bench</h2>
+  <figure>
+    <svg viewBox="0 0 520 250" role="img" aria-label="Finished 3-foot bench, front elevation">
+      <rect class="wd2" x="72" y="34" width="360" height="7.5"/>
+      <rect class="wd" x="72" y="41.5" width="360" height="142.5"/>
+      <rect class="wd2" x="72" y="41.5" width="7.5" height="142.5"/>
+      <rect class="wd2" x="424.5" y="41.5" width="7.5" height="142.5"/>
+      <rect class="wd2" x="189.5" y="49" width="7.5" height="135"/>
+      <rect class="wd2" x="307" y="49" width="7.5" height="135"/>
+      <rect class="wd2" x="79.5" y="176.5" width="345" height="7.5"/>
+      <rect class="bl" x="87" y="184" width="330" height="35"/>
+      <text class="lbx mut" x="134" y="118" text-anchor="middle">cubby 1</text>
+      <text class="lbx mut" x="252" y="118" text-anchor="middle">cubby 2</text>
+      <text class="lbx mut" x="370" y="118" text-anchor="middle">cubby 3</text>
+      <line class="dim" x1="72" y1="234" x2="432" y2="234"/><line class="dim" x1="72" y1="230" x2="72" y2="238"/><line class="dim" x1="432" y1="230" x2="432" y2="238"/>
+      <text class="dtx" x="252" y="230" text-anchor="middle">36 in</text>
+    </svg>
+    <figcaption>One bench done — repeat five more for the set, or batch the carcasses in parallel.</figcaption>
+  </figure>
+
+  <div class="callout warn">Two-person lift (~45–50 lb). Carry by gripping under the top at the open back. Don't stack more than 3 high unless strapped to a wall.</div>
+
+  <div class="foot">
+    <span>3-Ft Bench · assembly guide</span>
+    <span>9 steps · ~2–3 hr + cure</span>
+    <span>Parts &amp; cuts → cut diagrams</span>
+  </div>
+
+</div>
