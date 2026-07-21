@@ -42,17 +42,19 @@ Cut list **cut-verified** (`exit 0`) before release.
 
 Light and stable in normal use, but the tall, shallow (3.5 in deep) base makes
 it **tippy forward** — a ~1.5 lb horizontal bump at shelf height can tip it
-empty. Mitigations, in order: rare-earth **magnets to the range's steel side
-panel** (mechanical tether — biggest win), keep heavy items to the **back over
-the legs**, silicone feet at the leg extremes, and never load the front
-overhang. The wall behind arrests backward tip only.
+empty. Mitigations, in order: rare-earth **magnets recessed in the leg front
+faces, pulling to the range's magnetic black rear backguard** (confirmed
+magnetic; the leg fronts sit right against it — mechanical tether, biggest win),
+keep heavy items to the **back over the legs**, silicone feet at the leg
+extremes, and never load the front overhang. The wall behind arrests backward
+tip only.
 
 # Documents (repo)
 
 In `projects/2026-freestanding-stove-shelf/`:
 - **Guide:** `guides/stove_shelf_master.html` — self-contained master (shopping,
   to-scale cut diagrams, orthographic + exploded views, build + assembly, safety).
-- **Design spec (Rev 1):** `design/stove_shelf_rev1.md`.
+- **Design spec (Rev 2):** `design/stove_shelf_rev1.md`.
 - **Verifier spec:** `design/stove_shelf.spec.json`.
 
 # Lessons fed back

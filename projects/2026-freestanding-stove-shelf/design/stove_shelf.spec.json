@@ -30,7 +30,7 @@
     { "name": "3/8 in fluted dowels", "kind": "hardware", "qty": 18 },
     { "name": "wood glue", "kind": "hardware", "qty": 1 },
     { "name": "clear silicone feet", "kind": "hardware", "qty": 4 },
-    { "name": "rare-earth magnets (optional anti-tip)", "kind": "hardware", "qty": 4 }
+    { "name": "rare-earth magnets -> range rear backguard (anti-tip tether)", "kind": "hardware", "qty": 4 }
   ],
 
   "stick_stock": {

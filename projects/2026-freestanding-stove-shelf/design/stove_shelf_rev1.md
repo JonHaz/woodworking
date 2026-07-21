@@ -1,8 +1,13 @@
-# Freestanding Rear Stove Shelf — Revision 1
+# Freestanding Rear Stove Shelf — Revision 2
 
 **cut-verifier: ALL CHECKS PASS** — `verify_cutlist.py stove_shelf.spec.json` → `exit 0`
 (5 stack-ups close, rear-stretcher captured check closes, parts pack into 2 red oak
 1×4×6 boards; 120.25 lin in, 2 new sticks).
+
+> **Rev 2 (2026-07-21):** the anti-tip magnet tether is re-pointed to the range's **magnetic
+> black rear backguard** (the raised black trim strip at the back of the cooktop — confirmed
+> magnetic from the range side-profile photo), replacing the earlier "steel side panel" target.
+> No wood dimensions changed — the cut list is unchanged and still verifies `exit 0`.
 
 A premium, liftable red-oak shelf that bridges the gap behind a 30" electric range. Rests
 on two legs, **no wall/counter fasteners, no visible screws** — concealed 3/8" dowels, glue
@@ -150,9 +155,14 @@ is inherently **tippy forward**. The wall behind arrests backward tip only.
 
 ## Anti-tip recommendations (in order of effectiveness)
 
-1. **Rare-earth magnets to the range's steel side panel** — a mechanical tether; holding force
+1. **Rare-earth magnets to the range's magnetic black rear backguard** (the raised black trim
+   strip at the back of the cooktop — confirmed magnetic). Each leg's front face sits right
+   against the range rear (leg depth 3.5" = rear gap 3.5"), so recess magnets low in the leg
+   front faces to pull directly onto the ferrous backguard — no keeper plate needed. Position
+   them at build time to the measured backguard height (roughly the lower 2" of each leg).
+   This tethers the shelf to the heavy (~150 lb) range in the tipping direction; holding force
    far exceeds the ~2 lb tip threshold and converts "tips over" into "needs real force."
-   Biggest single win (confirm the range side is magnetic; keep magnets away from heat).
+   **The reliable primary anti-tip measure.** The tether releases when the shelf is lifted off.
 2. **Load discipline** — heavy jars to the **back, over the legs**; never on the front overhang.
 3. **Silicone feet at the front and back extremes of each leg** — friction stops the base
    kicking out (slide-then-tip) and maximizes the effective footprint.
@@ -172,7 +182,7 @@ is inherently **tippy forward**. The wall behind arrests backward tip only.
 | Idea | Verdict |
 |---|---|
 | Clear silicone feet | **Yes** — friction + protects the counter; part of the anti-tip set. |
-| Rare-earth magnets to range | **Yes (optional)** — best anti-tip tether if the side panel is magnetic. |
+| Rare-earth magnets to range | **Yes — recommended.** Recessed in the leg front faces, pulling to the range's magnetic black rear backguard; the primary anti-tip tether (releases on lift). |
 | Rear lip / groove for jars | **Included** as the raised back fence (positive stop, matches the reference). |
 | Shadow line / floating top | **Included** — the hidden setback riser (3/8" reveal). |
 
@@ -188,7 +198,9 @@ is inherently **tippy forward**. The wall behind arrests backward tip only.
 
 ## Safety summary
 
-- **Forward-tip risk on a hot cooktop** — use magnets + load discipline + feet (above). ⚠
+- **Forward-tip risk on a hot cooktop** — magnets to the range's magnetic rear backguard are
+  the primary tether; add load discipline + feet (above). Once lifted off the magnets release
+  and it's free-standing again, so don't leave it perched loose against a hot cooktop. ⚠
 - **The shelf is the lifting handle** — the glued leg→top dowel joints carry the legs when you
   lift the piece off; lift with two hands, don't yank a front corner (lesson #8 applied to a
   glue-only joint). ⚠

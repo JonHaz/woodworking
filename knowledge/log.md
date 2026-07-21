@@ -1,6 +1,14 @@
 # Knowledge Bundle Update Log
 
 ## 2026-07-21
+* **Update**: Stove shelf design → **Rev 2** — re-pointed the anti-tip magnet
+  tether to the range's **magnetic black rear backguard** (confirmed magnetic
+  from the range side-profile photo), replacing the earlier "steel side panel"
+  target. The legs' front faces sit against the backguard (leg depth 3.5 = rear
+  gap 3.5), so magnets recess into the leg fronts and pull directly to it —
+  promoted from optional to the reliable primary anti-tip measure. Updated the
+  design spec, HTML master, and concept-doc stability note. No wood dimensions
+  changed; cut list re-verified `exit 0`.
 * **Creation**: Added [Freestanding rear stove shelf (2026)](/projects/freestanding-stove-shelf.md)
   — a liftable red-oak shelf on two legs bridging the gap behind a 30-in range;
   concealed 3/8-in dowels, no visible screws, hidden floating-top reveal, raised
