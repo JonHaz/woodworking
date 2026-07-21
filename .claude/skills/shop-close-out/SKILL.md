@@ -31,8 +31,10 @@ Work the checklist in `references/okf-closeout.md` in order. In brief:
    refresh the phase notes and key numbers, keep the documents list accurate.
 4. **Log** — add an entry to `knowledge/log.md` under a `## YYYY-MM-DD` heading (today,
    **newest first**), using `**Update**` / `**Creation**` style and bundle-relative links.
-5. **Tools** — if a tool was acquired, add it to `knowledge/shop/tools.md` as `confirmed`
-   (make, model, capability). If a build confirmed a previously `inferred` tool, promote it.
+5. **Tools** — if this build introduced a tool, add it to `knowledge/shop/tools.md` as
+   `confirmed` (make, model, capability), and promote any `inferred` tool the build
+   verified. For a standalone tool census unrelated to a build — confirming guessed
+   entries, logging a tool bought outside a project — use `shop-inventory` instead.
 6. **Indexes** — keep every touched `index.md` current (new concepts listed, descriptions fresh).
 
 ## Reference map

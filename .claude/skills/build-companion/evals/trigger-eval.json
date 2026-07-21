@@ -1,0 +1,21 @@
+{
+  "skill": "build-companion",
+  "description": "Trigger evals: queries that should and should not activate build-companion.",
+  "positive": [
+    "Which piece do I cut first for the cubby bench?",
+    "Walk me through the glue-up and squaring.",
+    "How do I keep the three openings equal without measuring each one?",
+    "My first opening came out 10.5 instead of 11 — what now?",
+    "The shelf won't drop between the sides; did I cut something wrong?",
+    "What's my dry-fit check before I fasten the top?",
+    "Is this finished bench a two-person lift?"
+  ],
+  "negative": [
+    "Design a 4-ft version of this bench.",
+    "Render the build guide HTML for this project.",
+    "Does this cut list close before I start?",
+    "Confirm which saw I actually own.",
+    "I finished the benches — update the shop inventory and lessons."
+  ],
+  "notes": "Positives are all at-the-bench execution: cut order, layout technique, dry-fit, deviation recovery, safety. Negatives belong to build-planner (design), guide-renderer (static guides), cut-verifier (pre-build number check), shop-inventory (tool confirmation), or shop-close-out (post-build update). The deviation cases ('10.5 not 11') are build-companion's because they are live at-the-bench recovery; cut-verifier is the math engine it delegates to, not the trigger."
+}

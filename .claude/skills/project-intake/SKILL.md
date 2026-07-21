@@ -30,7 +30,8 @@ finished build — that is `shop-close-out`.
    base already answers, and do not drift into designing.
 3. **Run a feasibility pass.** Flag anything that needs a tool not marked `confirmed`
    (offer it as a clearly labeled alternative, never the default), and note which on-hand
-   stock the build could consume before buying anything.
+   stock the build could consume before buying anything. If feasibility hinges on tools
+   that are still `inferred`, suggest running `shop-inventory` to confirm them first.
 4. **Scaffold the project folder.** Create `projects/<year>-<name>/` with `design/`,
    `guides/`, and `photos/` (copy the shape of `templates/project-template/`).
 5. **Write the concept doc** to `knowledge/projects/<name>.md` using OKF v0.1 frontmatter
