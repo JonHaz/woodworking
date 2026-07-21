@@ -119,13 +119,13 @@ yields the remaining six 11 in rungs. Delivers the required 12 rails + 18 rungs.
 2. Fill and sand the front edges of sides, dividers, and shelf, and all four top edges (no edge banding). Do it before assembly — far easier flat. *(If you instead want a natural, unpainted finish, iron-on banding is the alternative; apply it now while flat.)*
 3. Assemble the carcass: glue and screw the bottom shelf between the two sides, flush at the bottom and front.
 4. Install the rear bottom stretcher on the shelf, flush with the back, glued and screwed through the sides.
-5. Install the dividers at 11 in spacing: glue plus screws down through pre-drilled holes in the shelf, or pocket screws from below. Their back edges butt the bottom stretcher.
+5. Install the dividers at 11 in spacing: glue plus screws down through pre-drilled holes in the shelf, or dowels from below. Their back edges butt the bottom stretcher.
 6. Install the rear top stretcher between the sides, flush with the back and with the top edges of the sides; screw through the sides and into the divider back edges. This ties the whole back plane together against racking.
 7. Build the 2x4 base as a ladder frame (glue + 3 in construction screws). Center it under the shelf (1.5 in inset all around) and screw down through the shelf into the rails, countersunk inside the cubbies.
-8. Attach the top with glue plus pocket screws driven up from inside the carcass (through sides, dividers, and top stretcher). The top gets grabbed during every lift and stack, so do not rely on brads or glue alone.
+8. Attach the top with glue plus screws — or dowels — driven up from inside the carcass (through sides, dividers, and top stretcher). The top gets grabbed during every lift and stack, so do not rely on brads or glue alone.
 9. Add rubber pads to the base underside. Sand, prime, paint or stain.
 
-Joinery: butt joints with glue and screws (or pocket screws) are sufficient as dimensioned. If you prefer dados/rabbets for the shelf and dividers, add the dado depth to the captured part's dimension — the cut list above assumes butt joints.
+Joinery: butt joints with glue and screws (or dowels) are sufficient as dimensioned. If you prefer dados/rabbets for the shelf and dividers, add the dado depth to the captured part's dimension — the cut list above assumes butt joints.
 
 ---
 
