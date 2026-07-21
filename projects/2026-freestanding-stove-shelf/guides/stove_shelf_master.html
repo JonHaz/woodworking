@@ -1,0 +1,1046 @@
+<meta charset="utf-8">
+<title>Freestanding Rear Stove Shelf — Master Build Document</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --paper:#FBFAF7;
+    --ink:#171512;
+    --graphite:#6E6860;
+    --rule:#DED8CE;
+    --blue:#0B5C97;
+    --blue-soft:#E6EFF6;
+    --wood:#CDAE7E;
+    --wood-soft:#F1E7D4;
+    --warn:#B4471C;
+    --good:#3C6E47;
+    /* cut-diagram part fills (reused from the house palette) */
+    --top:#F1E7D4;
+    --shelf:#E7D9BC;
+    --side:#E1ECF5;
+    --div:#FFFFFF;
+    --str:#CDAE7E;
+    --waste:#ECEAE4;
+    --rail:#C9A063;
+    --rung:#DCEAF5;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Barlow",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  .sheet{
+    max-width:900px;
+    margin:0 auto;
+    padding:48px 40px 80px;
+  }
+
+  /* ---- Title block ---- */
+  .titleblock{border:2px solid var(--ink);display:grid;grid-template-columns:1fr auto}
+  .titleblock .main{padding:22px 24px 20px;border-right:2px solid var(--ink)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 8px}
+  h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:44px;line-height:.98;letter-spacing:.01em;text-transform:uppercase;margin:0}
+  h1 span{color:var(--graphite);font-weight:500}
+  .titleblock .meta{display:grid;grid-template-rows:repeat(3,1fr);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .titleblock .meta div{padding:10px 18px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;min-width:196px}
+  .titleblock .meta div:last-child{border-bottom:none}
+  .titleblock .meta b{font-weight:600;color:var(--graphite);letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+  .titleblock .meta span{font-size:15px;color:var(--ink)}
+
+  /* ---- Verifier verdict badge ---- */
+  .verdict{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.5;
+    background:#EAF2EB;border:1px solid var(--good);border-left:4px solid var(--good);
+    color:#2c4f34;padding:10px 14px;margin:14px 0 0;border-radius:2px;letter-spacing:.015em;
+  }
+  .verdict b{color:var(--good);letter-spacing:.08em;text-transform:uppercase}
+
+  .lede{margin:22px 2px 4px;font-size:17px;max-width:66ch}
+
+  /* ---- Spec strip ---- */
+  .spec{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);margin:26px 0 8px}
+  .spec div{flex:1 1 120px;padding:12px 16px;border-right:1px solid var(--rule)}
+  .spec div:last-child{border-right:none}
+  .spec b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);margin-bottom:3px}
+  .spec span{font-family:"Barlow Condensed",sans-serif;font-size:26px;font-weight:600;line-height:1}
+  .spec small{font-size:13px;color:var(--graphite);font-family:"Barlow",sans-serif}
+
+  h2.sec{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:700;font-size:15px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--blue);
+    margin:50px 0 0;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--ink);
+  }
+  h2.sheetnum{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin:30px 0 0;color:var(--ink);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  h2.sheetnum small{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;color:var(--graphite);letter-spacing:.04em}
+
+  /* ---- Before-you-start prep grid ---- */
+  .prep{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+  ul.tools{margin:8px 0;padding-left:18px;font-size:14.5px}
+  ul.tools li{margin:4px 0}
+
+  /* ---- Legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 4px;font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:16px;height:16px;border:1.4px solid var(--ink);border-radius:2px;display:inline-block}
+
+  /* ---- Steps ---- */
+  .step{
+    display:grid;grid-template-columns:56px 1fr;gap:20px;
+    padding:30px 0;border-bottom:1px solid var(--rule);page-break-inside:avoid;
+  }
+  .num{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;color:var(--blue);padding-top:4px;border-top:3px solid var(--blue)}
+  .step h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:27px;letter-spacing:.01em;text-transform:uppercase;margin:0 0 8px;line-height:1}
+  .step p{margin:0 0 10px}
+  .step ul{margin:6px 0 12px;padding-left:18px}
+  .step li{margin:4px 0}
+  .callout{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--blue-soft);border-left:3px solid var(--blue);padding:9px 13px;margin:12px 0 2px;color:#0a3f68}
+  .callout.warn{background:#F7E9E2;border-left-color:var(--warn);color:#7d3413}
+  .callout.good{background:#EAF2EB;border-left-color:var(--good);color:#2c4f34}
+  code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:#efe9dd;padding:1px 5px;border-radius:2px}
+  .note{font-size:14px;color:var(--graphite);margin:8px 0 0}
+
+  /* ---- Figures ---- */
+  figure{margin:16px 0 6px;background:#fff;border:1px solid var(--rule);padding:14px}
+  figure svg{width:100%;height:auto;display:block}
+  figcaption{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--graphite);margin-top:10px;text-transform:uppercase}
+
+  /* ---- Tables (default left-aligned) ---- */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  caption{text-align:left;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:19px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:middle}
+  th{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+  td.q,th.q{text-align:center;font-family:"IBM Plex Mono",monospace;width:54px}
+  td.d{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+  td.ck,th.ck{width:34px;text-align:center}
+  .box{display:inline-block;width:15px;height:15px;border:1.6px solid var(--graphite);border-radius:2px}
+  tbody tr:last-child td{border-bottom:none}
+  tr.tot td{border-top:2px solid var(--ink);font-weight:700}
+  tr.have td{background:#EDF3ED}
+  .pill{font-family:"IBM Plex Mono",monospace;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.06em}
+  .pill.have{background:#DCE9DD;color:var(--good)}
+  .pill.buy{background:#F7E3D9;color:var(--warn)}
+
+  /* ---- Tables (center-aligned yield / tally variant) ---- */
+  table.ctr th,table.ctr td{text-align:center}
+  table.ctr th:first-child,table.ctr td:first-child{text-align:left}
+  table.ctr td{font-family:"IBM Plex Mono",monospace}
+
+  /* ---- SVG drawing primitives (elevations, sections, step figures) ---- */
+  .ln{fill:none;stroke:var(--ink);stroke-width:1.6}
+  .ln2{fill:none;stroke:var(--ink);stroke-width:2.4}
+  .thin{fill:none;stroke:var(--graphite);stroke-width:1}
+  .wd{fill:var(--wood-soft);stroke:var(--ink);stroke-width:1.6}
+  .wd2{fill:var(--wood);stroke:var(--ink);stroke-width:1.6}
+  .bl{fill:var(--blue-soft);stroke:var(--ink);stroke-width:1.6}
+  .dim{stroke:var(--blue);stroke-width:1}
+  .dtx{fill:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .lbx{fill:var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12px}
+  .lbx.mut{fill:var(--graphite)}
+  .lead{stroke:var(--graphite);stroke-width:.8}
+  .arw{stroke:var(--warn);stroke-width:2;fill:none}
+
+  /* ---- SVG primitives (cut diagrams) ---- */
+  .pcname{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;fill:var(--ink)}
+  .pcname.sm{font-size:9px}
+  .pcname.w{fill:var(--graphite);font-weight:500}
+  .pcdim{font-family:"IBM Plex Mono",monospace;font-size:8.5px;fill:var(--graphite)}
+  .rip{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--blue)}
+  .cut{stroke:var(--ink);stroke-width:1}
+  .wln{stroke:var(--graphite);stroke-width:.8;stroke-dasharray:3 3}
+  .barlabel{font-family:"IBM Plex Mono",monospace;font-size:12px;fill:var(--ink)}
+  .barlabel .m{fill:var(--graphite)}
+  .badge{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:13px;fill:#fff}
+
+  .foot{margin-top:44px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--graphite);letter-spacing:.05em;display:flex;justify-content:space-between;border-top:1px solid var(--rule);padding-top:14px;flex-wrap:wrap;gap:8px}
+
+  @media (max-width:640px){.prep{grid-template-columns:1fr;gap:0}}
+  @media (max-width:620px){
+    .sheet{padding:28px 18px 60px}
+    h1{font-size:34px}
+    .titleblock{grid-template-columns:1fr}
+    .titleblock .main{border-right:none;border-bottom:2px solid var(--ink)}
+    .titleblock .meta div{min-width:0}
+    .step{grid-template-columns:1fr;gap:6px}
+    .num{border-top:none;padding-top:0}
+  }
+  @media print{
+    body{background:#fff}
+    .sheet{max-width:none;padding:0 8px}
+    .step,figure,table,.spec{page-break-inside:avoid}
+    h2.sec{page-break-after:avoid}
+    h2.sheetnum{page-break-after:avoid}
+  }
+</style>
+
+<div class="sheet">
+
+  <!-- ============================================================= -->
+  <!-- 1 · TITLE BLOCK + SPEC STRIP + VERIFIER VERDICT               -->
+  <!-- ============================================================= -->
+  <div class="titleblock">
+    <div class="main">
+      <p class="eyebrow">Master Build Document · Single Unit</p>
+      <h1>Freestanding Rear Stove Shelf <span>red oak</span></h1>
+    </div>
+    <div class="meta">
+      <div><b>Finished size</b><span>31 × 6.75 × 12.25 in</span></div>
+      <div><b>Material</b><span>2 red oak 1×4×6 ft, S4S</span></div>
+      <div><b>Opening</b><span>11.5 in clear · for a 30-in range</span></div>
+    </div>
+  </div>
+
+  <div class="verdict"><b>cut-verifier: ALL CHECKS PASS</b> — 5 stack-ups, rear-stretcher captured check, 2-board yield (exit 0).</div>
+
+  <div class="spec">
+    <div><b>Clear opening</b><span>11.5</span> <small>in, under shelf</small></div>
+    <div><b>Cooktop clearance</b><span>~0.25</span> <small>in over grates</small></div>
+    <div><b>Side overhang</b><span>~0.5</span> <small>in, each side</small></div>
+    <div><b>Floating reveal</b><span>0.375</span> <small>in shadow gap</small></div>
+    <div><b>Weight</b><span>~7.5</span> <small>lb finished</small></div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- 2 · AT A GLANCE                                                -->
+  <!-- ============================================================= -->
+  <h2 class="sec">At a glance</h2>
+  <p class="lede">A liftable red-oak shelf that bridges the gap behind a 30-in electric range, adding display space above the cooktop without touching the wall or the counter. It simply <b>rests on two legs</b> — no wall cleats, no counter fasteners, no visible screws anywhere. Concealed 3/8-in dowels and glue hold the whole thing together; lift it by the top and it comes away as one ~7.5-lb piece. A hidden 3/8-in setback riser under each leg gives the top a real shadow reveal so it reads as floating, and a raised back fence stops jars from marching off the rear edge.</p>
+  <p><b>Dry-fit before you glue.</b> This is a single build, not a batch — but the joinery is unforgiving (glue-only, no screws to fall back on), so the dry-fit and square check in Step 6 is the point of no return. Read the weight &amp; stability section before you finish and place it: a tall, shallow base like this one is more tip-prone than it looks, and the fix is cheap (magnets + load discipline + feet).</p>
+
+  <!-- ============================================================= -->
+  <!-- 3 · SHOPPING LIST                                             -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Shopping list</h2>
+  <p class="note">Firm counts come straight from the verified board-packing below. Estimates are hardware — round up. <b>No on-hand red oak exists</b> (<code>materials-on-hand.md</code>); this project consumes nothing from stock, and nothing earmarked for the cubby benches is touched.</p>
+
+  <table>
+    <caption>Firm — from verified yield</caption>
+    <thead><tr><th class="ck"></th><th>Item</th><th class="q">Qty</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="ck"><span class="box"></span></td><td>Red oak 1×4×6 ft (72 in), S4S</td><td class="q">2</td><td><span class="pill buy">buy</span> required — packing verified below, 120.25 lin in total</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Red oak 1×4×6 ft (72 in) — insurance board</td><td class="q">1</td><td><span class="pill buy">buy</span> recommended, not required — grain/color match for the glued top + defect margin</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>Estimates — round up</caption>
+    <thead><tr><th class="ck"></th><th>Item</th><th class="q">Approx</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="ck"><span class="box"></span></td><td>3/8 in fluted dowels</td><td class="q">~18</td><td>buy a pack — leg/riser/top, stretcher, fence, top edge-glue alignment</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Wood glue</td><td class="q">1</td><td>carries every joint — no mechanical fasteners in this build</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Clear silicone feet</td><td class="q">4</td><td>front &amp; back extremes of each leg — anti-tip + counter protection</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Rare-earth magnets</td><td class="q">4</td><td>optional — biggest single anti-tip win if the range side panel is magnetic</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">ON HAND — nothing consumed. There is no red oak in inventory for this build; buy all 3 boards new. Existing plywood/2×4 stock earmarked for the cubby benches is untouched.</div>
+
+  <!-- ============================================================= -->
+  <!-- 4 · WHAT YOU'RE BUILDING                                      -->
+  <!-- ============================================================= -->
+  <h2 class="sec">What you're building</h2>
+  <p class="lede">Three orthographic views, all drawn at the same <b>1 in = 12 px</b> scale so they read together. The shelf rests on two legs set flush with its left/right ends and inset 0.75 in from the front; a hidden riser under each leg creates the floating reveal; a raised fence caps the back edge.</p>
+
+  <figure>
+    <svg viewBox="0 0 520 300" role="img" aria-label="Front elevation of the stove shelf with dimensions">
+      <!-- scale: 1 in = 12 px -->
+      <line class="wln" x1="50" y1="230" x2="460" y2="230"/>
+      <text class="lbx mut" x="464" y="234">range rear deck (ref.)</text>
+
+      <!-- legs -->
+      <rect class="wd2" x="70" y="96.5" width="9" height="133.5"/>
+      <rect class="wd2" x="433" y="96.5" width="9" height="133.5"/>
+      <!-- risers (blue accent = the hidden floating-reveal part throughout this document) -->
+      <rect class="bl" x="70" y="92" width="9" height="4.5"/>
+      <rect class="bl" x="433" y="92" width="9" height="4.5"/>
+      <!-- top -->
+      <rect class="wd2" x="70" y="83" width="372" height="9"/>
+      <!-- back fence (taller, sits on the shelf, visible above it since it's the tallest element at the back) -->
+      <rect class="wd2" x="70" y="65" width="372" height="18"/>
+      <!-- rear stretcher, visible through the open front -->
+      <rect class="wd" x="79" y="149.9" width="354" height="18"/>
+
+      <!-- leader labels -->
+      <line class="lead" x1="256" y1="65" x2="256" y2="50"/>
+      <text class="dtx" x="256" y="46" text-anchor="middle">back fence · 1.5 tall, full width (jar stop)</text>
+
+      <line class="lead" x1="74.5" y1="96.5" x2="30" y2="110"/>
+      <text class="lbx mut" x="0" y="118">leg ×2</text>
+      <text class="lbx mut" x="0" y="130">11.125 tall</text>
+
+      <line class="lead" x1="256" y1="158.9" x2="256" y2="200"/>
+      <text class="dtx" x="256" y="212" text-anchor="middle">rear stretcher · 29.5, captured between legs</text>
+
+      <line class="lead" x1="74.5" y1="94.25" x2="30" y2="60"/>
+      <text class="lbx mut" x="0" y="52">riser · 0.375</text>
+      <text class="lbx mut" x="0" y="64">hidden setback</text>
+
+      <!-- width dim -->
+      <line class="dim" x1="70" y1="40" x2="442" y2="40"/>
+      <line class="dim" x1="70" y1="35" x2="70" y2="45"/>
+      <line class="dim" x1="442" y1="35" x2="442" y2="45"/>
+      <text class="dtx" x="256" y="34" text-anchor="middle">31 in</text>
+
+      <!-- overall height dim (right) -->
+      <line class="dim" x1="490" y1="230" x2="490" y2="83"/>
+      <line class="dim" x1="485" y1="230" x2="495" y2="230"/>
+      <line class="dim" x1="485" y1="83" x2="495" y2="83"/>
+      <text class="dtx" x="500" y="156" transform="rotate(90 500 156)" text-anchor="middle">12.25 in overall</text>
+
+      <!-- opening dim (right, nested) -->
+      <line class="dim" x1="462" y1="230" x2="462" y2="92"/>
+      <line class="dim" x1="457" y1="230" x2="467" y2="230"/>
+      <line class="dim" x1="457" y1="92" x2="467" y2="92"/>
+      <text class="dtx" x="472" y="161" transform="rotate(90 472 161)" text-anchor="middle">11.5 opening</text>
+
+      <text class="lbx mut" x="256" y="256" text-anchor="middle">legs flush with shelf ends · inset 0.75 from front (see side section)</text>
+    </svg>
+    <figcaption>Fig. 1 — Front elevation. Legs sit flush with the shelf's left/right ends (0.75 in leg thickness × 2 = why the captured stretcher is 29.5, not 31).</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 520 300" role="img" aria-label="Side section showing the leg, riser, cooktop clearance and back fence">
+      <!-- scale: 1 in = 12 px -->
+      <line class="wln" x1="60" y1="230" x2="420" y2="230"/>
+      <text class="lbx mut" x="234" y="245" text-anchor="middle">range rear deck (ref.) — legs bear here</text>
+
+      <!-- grates schematic under the front cantilever, 11.25 tall, 0.25 gap to shelf underside -->
+      <rect x="150" y="95" width="9" height="135" fill="var(--waste)" stroke="var(--graphite)" stroke-width="1"/>
+      <line class="thin" x1="150" y1="105" x2="159" y2="105"/><line class="thin" x1="150" y1="120" x2="159" y2="120"/>
+      <line class="thin" x1="150" y1="135" x2="159" y2="135"/><line class="thin" x1="150" y1="150" x2="159" y2="150"/>
+      <line class="thin" x1="150" y1="165" x2="159" y2="165"/><line class="thin" x1="150" y1="180" x2="159" y2="180"/>
+      <line class="thin" x1="150" y1="195" x2="159" y2="195"/><line class="thin" x1="150" y1="210" x2="159" y2="210"/>
+      <text class="lbx mut" x="163" y="165">cooktop grates (ref.), 11.25 tall</text>
+
+      <!-- leg -->
+      <rect class="wd2" x="159" y="96.5" width="42" height="133.5"/>
+      <!-- riser, inset 0.5 each side of the leg's depth -->
+      <rect class="bl" x="165" y="92" width="30" height="4.5"/>
+      <!-- shelf -->
+      <rect class="wd2" x="150" y="83" width="81" height="9"/>
+      <!-- back fence -->
+      <rect class="wd2" x="213" y="65" width="18" height="18"/>
+      <!-- stretcher cross-section, end-on -->
+      <rect class="wd" x="175.5" y="128" width="9" height="18"/>
+
+      <text class="lbx mut" x="150" y="60" text-anchor="middle">front</text>
+      <text class="lbx mut" x="222" y="60" text-anchor="middle">back</text>
+
+      <line class="lead" x1="180" y1="128" x2="240" y2="118"/>
+      <text class="dtx" x="244" y="115">rear stretcher (end view)</text>
+
+      <line class="lead" x1="222" y1="65" x2="270" y2="50"/>
+      <text class="dtx" x="274" y="47">back fence, 1.5 tall</text>
+
+      <!-- depth dim -->
+      <line class="dim" x1="150" y1="45" x2="231" y2="45"/>
+      <line class="dim" x1="150" y1="40" x2="150" y2="50"/>
+      <line class="dim" x1="231" y1="40" x2="231" y2="50"/>
+      <text class="dtx" x="190.5" y="39" text-anchor="middle">6.75 in depth</text>
+
+      <!-- leg inset dim -->
+      <line class="dim" x1="150" y1="240" x2="159" y2="240"/>
+      <line class="dim" x1="150" y1="235" x2="150" y2="245"/>
+      <line class="dim" x1="159" y1="235" x2="159" y2="245"/>
+      <text class="dtx" x="163" y="255">0.75 leg inset from front</text>
+
+      <!-- height stack dims on far right -->
+      <line class="dim" x1="330" y1="230" x2="330" y2="95"/>
+      <line class="dim" x1="325" y1="230" x2="335" y2="230"/>
+      <line class="dim" x1="325" y1="95" x2="335" y2="95"/>
+      <text class="dtx" x="340" y="165" transform="rotate(90 340 165)" text-anchor="middle">11.25 grate + 0.25 gap = 11.5</text>
+
+      <line class="dim" x1="360" y1="230" x2="360" y2="83"/>
+      <line class="dim" x1="355" y1="230" x2="365" y2="230"/>
+      <line class="dim" x1="355" y1="83" x2="365" y2="83"/>
+      <text class="dtx" x="370" y="160" transform="rotate(90 370 160)" text-anchor="middle">12.25 overall (11.125 leg + 0.375 riser + 0.75 top)</text>
+    </svg>
+    <figcaption>Fig. 2 — Side section. The clear opening (11.5) matches the grate height + 0.25 gap exactly; the leg and grates share the same reference deck. Fence sits on the top surface at the very back, additive to the 12.25 shelf-assembly height.</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 520 260" role="img" aria-label="Top view showing leg inset, shelf footprint, fence and range overhang">
+      <!-- scale: 1 in = 12 px -->
+      <!-- range dashed reference, 30 wide, centered (0.5 overhang each side) -->
+      <rect x="76" y="190" width="360" height="40" fill="none" stroke="var(--graphite)" stroke-width="1" stroke-dasharray="5 4"/>
+      <text class="lbx mut" x="256" y="245" text-anchor="middle">30-in range footprint (ref.)</text>
+
+      <!-- shelf top outline -->
+      <rect class="wd" x="70" y="109" width="372" height="81"/>
+      <!-- legs -->
+      <rect class="wd2" x="70" y="139" width="9" height="42"/>
+      <rect class="wd2" x="433" y="139" width="9" height="42"/>
+      <!-- fence at back -->
+      <rect class="wd2" x="70" y="109" width="372" height="18"/>
+      <!-- stretcher between legs, mid-depth -->
+      <rect class="wd" x="79" y="155.5" width="354" height="9"/>
+
+      <text class="lbx mut" x="256" y="120" text-anchor="middle">back fence · full width</text>
+      <text class="lbx" x="74.5" y="164" text-anchor="middle" transform="rotate(-90 74.5 164)">leg</text>
+      <text class="lbx mut" x="256" y="161" text-anchor="middle">stretcher (below top)</text>
+      <text class="lbx mut" x="256" y="183" text-anchor="middle">front — open, shelf overhangs the grates here</text>
+
+      <!-- width dim (top) -->
+      <line class="dim" x1="70" y1="95" x2="442" y2="95"/>
+      <line class="dim" x1="70" y1="90" x2="70" y2="100"/>
+      <line class="dim" x1="442" y1="90" x2="442" y2="100"/>
+      <text class="dtx" x="256" y="89" text-anchor="middle">31 in</text>
+
+      <!-- depth dim (left) -->
+      <line class="dim" x1="50" y1="109" x2="50" y2="190"/>
+      <line class="dim" x1="45" y1="109" x2="55" y2="109"/>
+      <line class="dim" x1="45" y1="190" x2="55" y2="190"/>
+      <text class="dtx" x="30" y="153" transform="rotate(-90 30 153)" text-anchor="middle">6.75</text>
+
+      <!-- leg inset dim -->
+      <line class="dim" x1="70" y1="139" x2="70" y2="109"/>
+      <line class="dim" x1="65" y1="139" x2="75" y2="139"/>
+      <text class="dtx" x="18" y="126">0.75 front inset</text>
+      <line class="lead" x1="65" y1="126" x2="70" y2="126"/>
+
+      <!-- overhang dims -->
+      <line class="dim" x1="70" y1="205" x2="76" y2="205"/>
+      <line class="dim" x1="70" y1="200" x2="70" y2="210"/>
+      <line class="dim" x1="76" y1="200" x2="76" y2="210"/>
+      <text class="dtx" x="45" y="209">0.5</text>
+      <line class="dim" x1="436" y1="205" x2="442" y2="205"/>
+      <line class="dim" x1="436" y1="200" x2="436" y2="210"/>
+      <line class="dim" x1="442" y1="200" x2="442" y2="210"/>
+      <text class="dtx" x="446" y="209">0.5</text>
+
+      <!-- stretcher span dim -->
+      <line class="dim" x1="79" y1="170" x2="433" y2="170"/>
+      <line class="dim" x1="79" y1="166" x2="79" y2="174"/>
+      <line class="dim" x1="433" y1="166" x2="433" y2="174"/>
+      <text class="dtx" x="256" y="175" text-anchor="middle">29.5 (31 − 2×0.75) — captured check ✓</text>
+    </svg>
+    <figcaption>Fig. 3 — Top view. Legs flush with the shelf's ends, inset 0.75 from the front; 30-in range centered under the 31-in shelf gives the 0.5-in overhang each side.</figcaption>
+  </figure>
+
+  <!-- ============================================================= -->
+  <!-- 5 · CONCEPT + EXPLODED VIEW                                   -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Concept &amp; exploded assembly</h2>
+  <p class="lede">Concept sketches, not to scale — see Figs. 1–3 for dimensioned views. Blue throughout this document marks the hidden floating-reveal riser.</p>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--wood)"></i>Solid oak part</span>
+    <span><i class="sw" style="background:var(--blue-soft)"></i>Riser (hidden, floating reveal)</span>
+    <span><i class="sw" style="background:var(--wood-soft)"></i>Stretcher (set back, visible through open front)</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 480 300" role="img" aria-label="Isometric concept sketch of the assembled shelf">
+      <!-- legs -->
+      <polygon class="wd2" points="93,170.4 98.2,170.4 112.2,162.3 107,162.3"/>
+      <polygon class="wd2" points="93,170.4 107,162.3 107,240.2 93,248.3"/>
+      <polygon class="wd2" points="98.2,170.4 112.2,162.3 112.2,240.2 98.2,248.3"/>
+      <polygon class="wd2" points="304.8,170.4 310,170.4 324,162.3 318.8,162.3"/>
+      <polygon class="wd2" points="304.8,170.4 318.8,162.3 318.8,240.2 304.8,248.3"/>
+      <polygon class="wd2" points="310,170.4 324,162.3 324,240.2 310,248.3"/>
+      <!-- risers -->
+      <polygon class="bl" points="95,166.6 100.2,166.6 110.2,160.9 105,160.9"/>
+      <polygon class="bl" points="306.8,166.6 312,166.6 322,160.9 316.8,160.9"/>
+      <!-- top plate -->
+      <polygon class="wd2" points="90,164.2 307,164.2 334,148.7 117,148.7"/>
+      <polygon class="wd2" points="90,164.2 90,169.5 117,154 117,148.7"/>
+      <polygon class="wd2" points="307,164.2 307,169.5 334,154 334,148.7"/>
+      <polygon class="wd" points="90,169.5 307,169.5 334,154 117,154"/>
+      <!-- fence -->
+      <polygon class="wd2" points="111,141.7 328,141.7 334,138.2 117,138.2"/>
+      <polygon class="wd2" points="111,141.7 111,152.2 117,148.7 117,138.2"/>
+      <polygon class="wd" points="111,152.2 328,152.2 334,148.2 117,148.7"/>
+      <!-- stretcher hint between legs -->
+      <polygon class="wd" points="103.2,206.9 309.8,206.9 306.8,205.2 106.2,205.2"/>
+      <polygon class="wd" points="103.2,206.9 103.2,217.4 106.2,215.7 106.2,205.2"/>
+
+      <!-- lift arrow -->
+      <g class="arw">
+        <line x1="212" y1="156.5" x2="212" y2="100"/>
+        <path d="M204 108 L212 96 L220 108"/>
+      </g>
+      <text class="dtx" x="212" y="90" text-anchor="middle">lifts off as one piece</text>
+
+      <!-- labels -->
+      <line class="lead" x1="200" y1="156" x2="240" y2="130"/>
+      <text class="dtx" x="244" y="127">top · edge-glued, ripped to 6.75</text>
+
+      <line class="lead" x1="103" y1="200" x2="40" y2="230"/>
+      <text class="dtx" x="0" y="234">leg ×2 · inset .75 from front</text>
+
+      <line class="lead" x1="308" y1="206" x2="380" y2="220"/>
+      <text class="dtx" x="384" y="217">stretcher (captured)</text>
+
+      <line class="lead" x1="120" y1="140" x2="60" y2="115"/>
+      <text class="dtx" x="0" y="112">fence · 1.5 tall</text>
+
+      <line class="lead" x1="102" y1="165" x2="30" y2="175"/>
+      <text class="dtx" x="0" y="179">riser · hidden</text>
+      <text class="dtx" x="0" y="191">0.375 reveal</text>
+
+      <text class="lbx mut" x="212" y="285" text-anchor="middle">no wall or counter fasteners — glue + concealed dowels only</text>
+    </svg>
+    <figcaption>Fig. 4 — Concept sketch. Not to scale. The shelf, legs, riser and fence form one liftable unit; nothing attaches to the wall or the range.</figcaption>
+  </figure>
+
+  <figure>
+    <svg viewBox="0 0 480 340" role="img" aria-label="Exploded assembly view with dowel indicators">
+      <!-- baseline -->
+      <line class="wln" x1="60" y1="298.3" x2="420" y2="298.3"/>
+      <text class="lbx mut" x="240" y="313" text-anchor="middle">range deck (ref.)</text>
+
+      <!-- LEGS -->
+      <polygon class="wd2" points="113,220.4 118.2,220.4 132.2,212.3 127,212.3"/>
+      <polygon class="wd2" points="113,220.4 127,212.3 127,290.2 113,298.3"/>
+      <polygon class="wd2" points="118.2,220.4 132.2,212.3 132.2,290.2 118.2,298.3"/>
+      <polygon class="wd2" points="324.8,220.4 330,220.4 344,212.3 338.8,212.3"/>
+      <polygon class="wd2" points="324.8,220.4 338.8,212.3 338.8,290.2 324.8,298.3"/>
+      <polygon class="wd2" points="330,220.4 344,212.3 344,290.2 330,298.3"/>
+      <text class="lbx mut" x="122" y="310">leg L</text>
+      <text class="lbx mut" x="333" y="310">leg R</text>
+
+      <!-- dowel indicators, leg tops -->
+      <circle cx="122.6" cy="216" r="2.2" fill="var(--warn)"/>
+      <circle cx="334.4" cy="216" r="2.2" fill="var(--warn)"/>
+      <g class="arw"><line x1="122.6" y1="216" x2="122.6" y2="188"/><path d="M118 194 L122.6 186 L127.2 194"/></g>
+      <g class="arw"><line x1="334.4" y1="216" x2="334.4" y2="188"/><path d="M330 194 L334.4 186 L339 194"/></g>
+
+      <!-- RISERS -->
+      <polygon class="bl" points="115,185.1 120.2,185.1 130.2,179.4 125,179.4"/>
+      <polygon class="bl" points="115,185.1 125,179.4 125,177 115,182.7"/>
+      <polygon class="bl" points="326.8,185.1 332,185.1 342,179.4 336.8,179.4"/>
+      <polygon class="bl" points="326.8,185.1 336.8,179.4 336.8,177 326.8,182.7"/>
+      <text class="dtx" x="60" y="185">riser · 0.375</text>
+      <line class="lead" x1="97" y1="183" x2="115" y2="183"/>
+
+      <!-- dowel indicators riser -> top -->
+      <circle cx="122.6" cy="180" r="2.2" fill="var(--warn)"/>
+      <circle cx="334.4" cy="180" r="2.2" fill="var(--warn)"/>
+      <g class="arw"><line x1="122.6" y1="179" x2="122.6" y2="152"/><path d="M118 158 L122.6 150 L127.2 158"/></g>
+      <g class="arw"><line x1="334.4" y1="179" x2="334.4" y2="152"/><path d="M330 158 L334.4 150 L339 158"/></g>
+
+      <!-- TOP plate -->
+      <polygon class="wd2" points="110,151.2 327,151.2 354,135.7 137,135.7"/>
+      <polygon class="wd2" points="110,151.2 110,156.5 137,141 137,135.7"/>
+      <polygon class="wd2" points="327,151.2 327,156.5 354,141 354,135.7"/>
+      <polygon class="wd" points="110,156.5 327,156.5 354,141 137,141"/>
+      <text class="lbx mut" x="232" y="128" text-anchor="middle">top · 31 × 6.75 × 0.75, edge-glued pair ripped to width</text>
+
+      <!-- dowel indicators top -> fence -->
+      <circle cx="270" cy="141" r="2.2" fill="var(--warn)"/>
+      <g class="arw"><line x1="270" y1="140" x2="270" y2="113"/><path d="M265.5 119 L270 111 L274.5 119"/></g>
+
+      <!-- FENCE -->
+      <polygon class="wd2" points="131,97.2 348,97.2 354,93.7 137,93.7"/>
+      <polygon class="wd2" points="131,97.2 131,107.7 137,104.2 137,93.7"/>
+      <polygon class="wd" points="131,107.7 348,107.7 354,104.2 137,93.7"/>
+      <text class="dtx" x="240" y="85" text-anchor="middle">back fence · 31 × 1.5 × 0.75, full width — 3–4 alignment dowels</text>
+
+      <!-- STRETCHER, pulled toward viewer -->
+      <polygon class="wd" points="103.2,252.7 309.8,252.7 312.8,250.9 106.2,250.9"/>
+      <polygon class="wd" points="103.2,252.7 103.2,263.1 106.2,261.3 106.2,250.9"/>
+      <text class="dtx" x="206" y="272" text-anchor="middle">rear stretcher · 29.5 × 1.5 × 0.75 — 2 dowels per end into leg inner faces</text>
+      <line class="arw" x1="140" y1="257" x2="140" y2="235"/>
+      <path class="arw" d="M135.5 241 L140 233 L144.5 241"/>
+      <line class="arw" x1="270" y1="257" x2="270" y2="235"/>
+      <path class="arw" d="M265.5 241 L270 233 L274.5 241"/>
+
+      <text class="lbx mut" x="232" y="330" text-anchor="middle">dowel + glue at every joint marker · assemble bottom → top</text>
+    </svg>
+    <figcaption>Fig. 5 — Exploded assembly. Orange dots/arrows mark dowel joints and their direction of insertion: legs → risers → top underside; stretcher into leg inner faces; fence onto the shelf's back edge.</figcaption>
+  </figure>
+
+  <!-- ============================================================= -->
+  <!-- 6 · LUMBER · CUT LIST & BOARD LAYOUTS                         -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Lumber · cut list &amp; board layouts</h2>
+
+  <table>
+    <caption>Cut list · one shelf (red oak 1×4 S4S, actual 0.75 × 3.5)</caption>
+    <thead><tr><th class="ck"></th><th>Part</th><th class="q">Qty</th><th>Size (L × W × T)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="ck"><span class="box"></span></td><td>Top board</td><td class="q">2</td><td class="d">31 × 3.5 × 0.75</td><td>edge-glue the pair → 7.0, rip to 6.75 wide</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Leg</td><td class="q">2</td><td class="d">11.125 × 3.5 × 0.75</td><td>full board width = leg depth</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Rear stretcher</td><td class="q">1</td><td class="d">29.5 × 1.5 × 0.75</td><td>captured between legs (31 − 2×0.75)</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Back fence</td><td class="q">1</td><td class="d">31 × 1.5 × 0.75</td><td>shelf back edge, full width</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Floating riser</td><td class="q">2</td><td class="d">2.5 × 0.75 × 0.375</td><td>hidden spacer, from offcut</td></tr>
+    </tbody>
+  </table>
+  <p class="note">The rear stretcher and back fence are ripped from <b>one shared 31-in blank</b> (two 1.5-in strips out of a single 3.5-in-wide length) — see the rip detail below. That's why the fence doesn't cost a third board.</p>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--top)"></i>Top</span>
+    <span><i class="sw" style="background:var(--shelf)"></i>Leg</span>
+    <span><i class="sw" style="background:var(--str)"></i>Fence/stretcher blank</span>
+    <span><i class="sw" style="background:var(--side)"></i>Riser</span>
+    <span><i class="sw" style="background:var(--waste)"></i>Waste</span>
+  </div>
+
+  <h2 class="sheetnum">Board 1 &amp; Board 2 <small>firm — 2 boards required, 1×4×6 ft (72 in) red oak</small></h2>
+  <figure>
+    <svg viewBox="0 0 520 210" role="img" aria-label="Cut layout for the two required red oak boards">
+      <!-- scale: 1 in = 6 px -->
+      <!-- BOARD 1 -->
+      <text class="barlabel" x="44" y="16">BOARD 1 · <tspan style="font-weight:600">72 in</tspan> <tspan class="m">— 2 top + 2 riser, leftover ~4.5 in</tspan></text>
+      <rect x="300" y="4" width="34" height="17" rx="3" fill="var(--good)"/>
+      <text class="badge" x="317" y="17" text-anchor="middle">1 of 2</text>
+      <line class="dim" x1="44" y1="26" x2="476" y2="26"/><line class="dim" x1="44" y1="23" x2="44" y2="29"/><line class="dim" x1="476" y1="23" x2="476" y2="29"/>
+      <text class="dtx" x="260" y="23" text-anchor="middle">72 in</text>
+      <rect x="44" y="34" width="186" height="30" fill="var(--top)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="230.75" y="34" width="186" height="30" fill="var(--top)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="417.5" y="34" width="15" height="30" fill="var(--side)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="433.25" y="34" width="15" height="30" fill="var(--side)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="449" y="34" width="27" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text class="pcname" x="137" y="53" text-anchor="middle">TOP · 31</text>
+      <text class="pcname" x="323.75" y="53" text-anchor="middle">TOP · 31</text>
+      <text class="pcname sm" x="425" y="50" text-anchor="middle">RISER</text>
+      <text class="pcname sm" x="440.75" y="50" text-anchor="middle">RISER</text>
+      <text class="pcname w" x="462.5" y="53" text-anchor="middle">~4.5</text>
+
+      <!-- BOARD 2 -->
+      <text class="barlabel" x="44" y="106">BOARD 2 · <tspan style="font-weight:600">72 in</tspan> <tspan class="m">— fence/stretcher blank + 2 legs, leftover ~18 in</tspan></text>
+      <rect x="300" y="94" width="34" height="17" rx="3" fill="var(--good)"/>
+      <text class="badge" x="317" y="107" text-anchor="middle">2 of 2</text>
+      <line class="dim" x1="44" y1="116" x2="476" y2="116"/><line class="dim" x1="44" y1="113" x2="44" y2="119"/><line class="dim" x1="476" y1="113" x2="476" y2="119"/>
+      <text class="dtx" x="260" y="113" text-anchor="middle">72 in</text>
+      <rect x="44" y="124" width="186" height="30" fill="var(--str)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="230.75" y="124" width="66.75" height="30" fill="var(--shelf)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="298.25" y="124" width="66.75" height="30" fill="var(--shelf)" stroke="var(--ink)" stroke-width="1.4"/>
+      <rect x="365.75" y="124" width="110.25" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1.4"/>
+      <text class="pcname" x="137" y="143" text-anchor="middle">FENCE/STRETCHER BLANK · 31</text>
+      <text class="pcname sm" x="263.6" y="143" text-anchor="middle">LEG · 11.125</text>
+      <text class="pcname sm" x="331.6" y="143" text-anchor="middle">LEG · 11.125</text>
+      <text class="pcname w" x="420.9" y="143" text-anchor="middle">~18</text>
+
+      <text class="lbx mut" x="260" y="196" text-anchor="middle">2 boards, ~⅛-in kerf per cut allowed for in the layout above — matches the verified packing exactly</text>
+    </svg>
+    <figcaption>Fig. 6 — The two required boards. Board 1: both top boards plus both risers. Board 2: the shared fence/stretcher blank plus both legs.</figcaption>
+  </figure>
+
+  <h2 class="sheetnum">Shared blank rip <small>31 × 3.5 → fence strip + stretcher strip</small></h2>
+  <figure>
+    <svg viewBox="0 0 420 150" role="img" aria-label="Ripping the shared fence and stretcher blank into two strips">
+      <!-- scale: 1 in = 10 px -->
+      <rect x="40" y="30" width="310" height="35" fill="#fff" stroke="var(--ink)" stroke-width="2"/>
+      <line class="cut" x1="40" y1="45" x2="350" y2="45"/>
+      <rect x="40" y="30" width="310" height="15" fill="var(--str)" stroke="var(--ink)"/>
+      <rect x="40" y="45" width="310" height="15" fill="var(--str)" stroke="var(--ink)"/>
+      <rect x="40" y="60" width="310" height="3.75" fill="var(--waste)" stroke="var(--ink)" stroke-width="0.6"/>
+      <text class="pcname" x="195" y="41" text-anchor="middle">FENCE · 31 × 1.5 (kept full length)</text>
+      <text class="pcname" x="195" y="56" text-anchor="middle">STRETCHER BLANK · 31 × 1.5 → crosscut to 29.5</text>
+      <line class="dim" x1="25" y1="30" x2="25" y2="65"/><line class="dim" x1="20" y1="30" x2="30" y2="30"/><line class="dim" x1="20" y1="65" x2="30" y2="65"/>
+      <text class="dtx" x="10" y="50" transform="rotate(-90 10 50)" text-anchor="middle">3.5 wide</text>
+      <line class="lead" x1="330" y1="45" x2="380" y2="80"/>
+      <text class="dtx" x="384" y="83">trim 1.5 total off the ends → 29.5</text>
+      <text class="lbx mut" x="195" y="100" text-anchor="middle">rip the 3.5-in blank into two 1.5-in strips (offcut ~0.375 in), then crosscut one strip to 29.5</text>
+    </svg>
+    <figcaption>Fig. 7 — Rip the shared 31-in blank into two 1.5-in strips: one stays 31 in long (the fence), the other is crosscut to 29.5 in (the stretcher).</figcaption>
+  </figure>
+
+  <table class="ctr">
+    <caption>Yield check</caption>
+    <thead><tr><th>Board</th><th>Parts placed</th><th>Leftover</th></tr></thead>
+    <tbody>
+      <tr><td>Board 1</td><td>top (31) + top (31) + riser (2.5) + riser (2.5)</td><td>~4.5 in</td></tr>
+      <tr><td>Board 2</td><td>fence/stretcher blank (31) + leg (11.125) + leg (11.125)</td><td>~18 in</td></tr>
+      <tr class="tot"><td>Total</td><td>2 boards</td><td>—</td></tr>
+      <tr><td>Needed (firm)</td><td>2 boards</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">ONE 6-FT BOARD IS IMPOSSIBLE — parts total 120.25 lin in (with kerf) against 72 in of stock. Buy 2 required + 1 insurance board (grain/color match for the glued top, defect margin) = 3 total.</div>
+
+  <!-- ============================================================= -->
+  <!-- 7 · DOWEL LOCATIONS & SPACING                                 -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Dowel locations &amp; spacing</h2>
+  <p class="lede">Every joint in this build is glue + concealed 3/8-in fluted dowels — there are no screws anywhere. The leg→top joint is the load-bearing one: 3 dowels per leg, run from the leg's end grain, through the pre-drilled riser, into long grain on the shelf underside.</p>
+
+  <figure>
+    <svg viewBox="0 0 540 320" role="img" aria-label="Dowel spacing across the leg depth and the leg-riser-top dowel path">
+      <!-- scale: 1 in = 36 px (plan, left) · 1 in = 40 px (section, right) -->
+      <!-- PLAN VIEW: leg top end grain, looking straight down -->
+      <text class="lbx mut" x="223.5" y="18" text-anchor="middle">leg top (plan) · back face at top</text>
+      <rect class="wd2" x="210" y="30" width="27" height="126"/>
+      <circle cx="223.5" cy="61.5" r="4.5" fill="var(--warn)"/>
+      <circle cx="223.5" cy="93" r="4.5" fill="var(--warn)"/>
+      <circle cx="223.5" cy="124.5" r="4.5" fill="var(--warn)"/>
+      <line class="dim" x1="190" y1="30" x2="190" y2="61.5"/><line class="dim" x1="185" y1="30" x2="195" y2="30"/><line class="dim" x1="185" y1="61.5" x2="195" y2="61.5"/>
+      <text class="dtx" x="160" y="49" text-anchor="middle">0.875</text>
+      <line class="dim" x1="190" y1="61.5" x2="190" y2="93"/><line class="dim" x1="185" y1="93" x2="195" y2="93"/>
+      <text class="dtx" x="160" y="80" text-anchor="middle">0.875</text>
+      <line class="dim" x1="190" y1="93" x2="190" y2="124.5"/><line class="dim" x1="185" y1="124.5" x2="195" y2="124.5"/>
+      <text class="dtx" x="160" y="112" text-anchor="middle">0.875</text>
+      <line class="dim" x1="190" y1="124.5" x2="190" y2="156"/><line class="dim" x1="185" y1="156" x2="195" y2="156"/>
+      <text class="dtx" x="160" y="143" text-anchor="middle">0.875</text>
+      <text class="lbx mut" x="223.5" y="170" text-anchor="middle">3.5 depth ÷ 4 = 0.875 equal spacing</text>
+      <text class="lbx mut" x="223.5" y="182" text-anchor="middle">dowels at 0.875 / 1.75 / 2.625 from back face</text>
+      <line class="dim" x1="252" y1="30" x2="252" y2="156"/><line class="dim" x1="247" y1="30" x2="257" y2="30"/><line class="dim" x1="247" y1="156" x2="257" y2="156"/>
+      <text class="dtx" x="262" y="96" transform="rotate(90 262 96)" text-anchor="middle">3.5 leg depth</text>
+      <text class="lbx mut" x="223.5" y="200" text-anchor="middle">step an 11-in scrap spacer block for repeatable spacing on the jig</text>
+
+      <!-- SECTION VIEW: dowel path, translated +260 -->
+      <g transform="translate(260,0)">
+        <text class="lbx mut" x="140" y="18" text-anchor="middle">dowel path (section)</text>
+        <rect x="20" y="155" width="220" height="30" fill="var(--wood)" stroke="var(--ink)" stroke-width="1.6"/>
+        <rect x="80" y="185" width="100" height="15" fill="var(--blue-soft)" stroke="var(--ink)" stroke-width="1.6"/>
+        <rect x="60" y="200" width="140" height="80" fill="var(--wood)" stroke="var(--ink)" stroke-width="1.6"/>
+        <path class="thin" d="M60 272 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8" fill="none"/>
+        <text class="lbx mut" x="130" y="298" text-anchor="middle">(leg continues below)</text>
+        <rect x="122.5" y="165" width="15" height="50" fill="none" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 2"/>
+        <g class="arw"><line x1="130" y1="230" x2="130" y2="150"/><path d="M124 158 L130 148 L136 158"/></g>
+        <text class="dtx" x="150" y="150">shelf underside (long grain)</text>
+        <text class="dtx" x="150" y="185">riser (through-drilled)</text>
+        <text class="dtx" x="150" y="212">leg top (end grain)</text>
+        <text class="lbx mut" x="130" y="30" text-anchor="middle">3/8 dowel, ~1 in</text>
+      </g>
+    </svg>
+    <figcaption>Fig. 8 — Dowel spacing &amp; path. Left: 3 dowels evenly spaced across the leg's 3.5-in depth. Right: each dowel runs from the leg's end grain, through the riser, into long grain on the shelf underside — the strong anchor.</figcaption>
+  </figure>
+
+  <div class="callout">STRETCHER &amp; FENCE DOWELS: 2 per end into the leg inner faces (stretcher); 3–4 alignment dowels for the fence into the shelf's back edge and for the top's own edge-glue seam — a properly jointed long-grain edge joint carries that load on its own, the dowels just keep the boards coplanar during glue-up.</div>
+
+  <!-- ============================================================= -->
+  <!-- 8 · FLOATING-TOP REVEAL DETAIL                                -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Floating-top reveal detail</h2>
+  <p class="lede">The stretch-goal detail: a hidden 0.375-in setback riser between each leg top and the shelf underside, inset 0.5 in from the leg's front and back faces. The result is a 3/8-in shadow line on both visible faces of the leg — the top reads as if it's floating.</p>
+
+  <figure>
+    <svg viewBox="0 0 480 320" role="img" aria-label="Zoomed detail of the floating reveal riser and shadow gap">
+      <!-- scale: 1 in = 40 px -->
+      <text class="lbx mut" x="130" y="18" text-anchor="middle">primary — hidden setback riser</text>
+      <rect class="wd" x="20" y="155" width="220" height="30"/>
+      <rect class="bl" x="80" y="185" width="100" height="15"/>
+      <rect class="wd2" x="60" y="200" width="140" height="80"/>
+      <path class="thin" d="M60 272 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8" fill="none"/>
+      <text class="lbx mut" x="130" y="298" text-anchor="middle">(leg continues to 11.125 total — truncated for clarity)</text>
+
+      <!-- shadow gap highlights -->
+      <rect x="60" y="185" width="20" height="15" fill="var(--warn)" opacity="0.28"/>
+      <rect x="180" y="185" width="20" height="15" fill="var(--warn)" opacity="0.28"/>
+      <line class="dim" x1="45" y1="185" x2="45" y2="200"/><line class="dim" x1="40" y1="185" x2="50" y2="185"/><line class="dim" x1="40" y1="200" x2="50" y2="200"/>
+      <text class="dtx" x="10" y="196">0.375</text>
+      <text class="dtx" x="10" y="184">reveal</text>
+
+      <line class="dim" x1="60" y1="150" x2="80" y2="150"/><line class="dim" x1="60" y1="146" x2="60" y2="154"/><line class="dim" x1="80" y1="146" x2="80" y2="154"/>
+      <text class="dtx" x="70" y="142" text-anchor="middle">0.5</text>
+      <line class="dim" x1="180" y1="150" x2="200" y2="150"/><line class="dim" x1="180" y1="146" x2="180" y2="154"/><line class="dim" x1="200" y1="146" x2="200" y2="154"/>
+      <text class="dtx" x="190" y="142" text-anchor="middle">0.5</text>
+      <line class="dim" x1="80" y1="140" x2="180" y2="140"/><line class="dim" x1="80" y1="136" x2="80" y2="144"/><line class="dim" x1="180" y1="136" x2="180" y2="144"/>
+      <text class="dtx" x="130" y="132" text-anchor="middle">riser 2.5 (inset from 3.5 leg depth)</text>
+
+      <text class="lbx mut" x="130" y="310" text-anchor="middle">11.125 leg + 0.375 riser + 0.75 top = 12.25 ✓</text>
+
+      <!-- fallback chamfer -->
+      <g transform="translate(280,0)">
+        <text class="lbx mut" x="90" y="18" text-anchor="middle">fallback — underside chamfer</text>
+        <rect class="wd2" x="40" y="155" width="140" height="30"/>
+        <rect class="wd2" x="60" y="185" width="100" height="80"/>
+        <path class="thin" d="M60 257 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8 l8 8 l8 -8" fill="none"/>
+        <path d="M40 185 L58 185 L40 175 Z" fill="var(--wood)" stroke="var(--ink)" stroke-width="1.2"/>
+        <path d="M180 185 L162 185 L180 175 Z" fill="var(--wood)" stroke="var(--ink)" stroke-width="1.2"/>
+        <text class="lbx mut" x="90" y="280" text-anchor="middle">no riser, no gap, no height change</text>
+        <text class="lbx mut" x="90" y="292" text-anchor="middle">simpler; subtler floating effect</text>
+      </g>
+    </svg>
+    <figcaption>Fig. 9 — Floating reveal. Left: the primary hidden-riser detail with the 0.375-in shadow gap called out on both visible faces. Right: the no-risk fallback if you'd rather skip the risers — a deep underside chamfer, no extra joint.</figcaption>
+  </figure>
+
+  <!-- ============================================================= -->
+  <!-- 9 · EDGE PROFILE                                              -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Edge profile</h2>
+  <figure>
+    <svg viewBox="0 0 420 160" role="img" aria-label="1/8 inch roundover profile on an exposed edge">
+      <!-- scale: 1 in = 100 px, zoomed detail -->
+      <path class="wd2" d="M40 40 L190 40 L190 127.5 L52.5 127.5 A12.5 12.5 0 0 1 40 115 Z"/>
+      <path class="wln" d="M40 40 L190 40 L190 140 L40 140 Z" fill="none"/>
+      <text class="lbx mut" x="115" y="30" text-anchor="middle">before (square edge, dashed) → after (routed)</text>
+      <line class="dim" x1="20" y1="115" x2="20" y2="127.5"/><line class="dim" x1="15" y1="115" x2="25" y2="115"/><line class="dim" x1="15" y1="127.5" x2="25" y2="127.5"/>
+      <text class="dtx" x="0" y="124">.125</text>
+      <text class="lbx mut" x="250" y="70">1/8-in router roundover</text>
+      <text class="lbx mut" x="250" y="86">on all exposed edges &amp; corners:</text>
+      <text class="lbx mut" x="250" y="102">top faces + ends, leg outer</text>
+      <text class="lbx mut" x="250" y="118">edges, fence top. Ease the</text>
+      <text class="lbx mut" x="250" y="134">reveal edges by hand.</text>
+      <text class="lbx mut" x="115" y="152" text-anchor="middle">no sharp edges anywhere</text>
+    </svg>
+    <figcaption>Fig. 10 — Edge profile. A consistent 1/8-in roundover everywhere it's exposed; the concealed riser/dowel faces stay square.</figcaption>
+  </figure>
+
+  <!-- ============================================================= -->
+  <!-- 10 · BUILD & ASSEMBLY SEQUENCE                                -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Build &amp; assembly sequence</h2>
+  <p class="lede">Eleven steps from milled parts to a finished, glued shelf. Because every joint is glue-only (no screws to lean on), the dry-fit in Step 6 is the checkpoint — don't glue past it until the opening and the square check both pass.</p>
+
+  <div class="prep">
+    <div>
+      <table>
+        <caption>Hardware · one shelf</caption>
+        <thead><tr><th>Item</th><th class="q">Approx</th></tr></thead>
+        <tbody>
+          <tr><td>3/8 in fluted dowels</td><td class="q">~18</td></tr>
+          <tr><td>Wood glue</td><td class="q">—</td></tr>
+          <tr><td>Clear silicone feet</td><td class="q">4</td></tr>
+          <tr><td>Rare-earth magnets (optional)</td><td class="q">4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <ul class="tools">
+        <li><b>Tools:</b> table saw or track saw (rip top to 6.75, rip fence/stretcher strips), miter saw (crosscuts), dowel jig, router with 1/8-in roundover bit, bar/pipe clamps, orbital sander (220–400).</li>
+        <li>Scrap spacer blocks: one 11-in block for the divider-style alignment habit, one stepped block for the leg's 0.875-in dowel spacing (Fig. 8).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">01</div>
+    <div>
+      <h3>Mill &amp; label</h3>
+      <p>Crosscut every part to length per the cut list (Fig. 6). Label each piece with painter's tape — several parts are close in size. Select the two best-matched boards for the top; book-match the grain if you can, since the edge-glue seam will be the most visible line on the piece.</p>
+      <div class="callout">CHECK: 2 top boards 31×3.5×0.75 · 2 legs 11.125×3.5×0.75 · 1 fence/stretcher blank 31×1.5×0.75 (before the 29.5 crosscut) · 2 risers 2.5×0.75×0.375</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">02</div>
+    <div>
+      <h3>Edge-glue the top</h3>
+      <p>Joint the mating edges of the two top boards true and square. Add 3–4 alignment dowels (they keep the boards coplanar during clamp-up — the edge joint itself carries the load), spread glue, and clamp the pair into a 7.0-in-wide panel. Use cauls across the seam to keep it flat; wipe squeeze-out before it skins over.</p>
+      <figure>
+        <svg viewBox="0 0 420 150" role="img" aria-label="Edge-gluing the two top boards into a 7.0 inch panel">
+          <!-- scale: 1 in = 40 px, end view -->
+          <rect x="60" y="50" width="140" height="30" fill="var(--wood-soft)" stroke="var(--ink)" stroke-width="1.6"/>
+          <rect x="200" y="50" width="140" height="30" fill="var(--wood-soft)" stroke="var(--ink)" stroke-width="1.6"/>
+          <line class="ln2" x1="200" y1="50" x2="200" y2="80"/>
+          <circle cx="200" cy="58" r="2" fill="var(--warn)"/><circle cx="200" cy="65" r="2" fill="var(--warn)"/><circle cx="200" cy="72" r="2" fill="var(--warn)"/>
+          <g class="arw"><line x1="40" y1="65" x2="58" y2="65"/><path d="M50 60 L58 65 L50 70"/></g>
+          <g class="arw"><line x1="360" y1="65" x2="342" y2="65"/><path d="M350 60 L342 65 L350 70"/></g>
+          <text class="lbx mut" x="130" y="42" text-anchor="middle">3.5</text>
+          <text class="lbx mut" x="270" y="42" text-anchor="middle">3.5</text>
+          <line class="dim" x1="60" y1="95" x2="340" y2="95"/><line class="dim" x1="60" y1="91" x2="60" y2="99"/><line class="dim" x1="340" y1="91" x2="340" y2="99"/>
+          <text class="dtx" x="200" y="110" text-anchor="middle">3.5 + 3.5 → 7.0 glued width (ripped to 6.75 in Step 3)</text>
+          <text class="lbx mut" x="200" y="130" text-anchor="middle">alignment dowels on the seam · clamp with cauls to keep it flat</text>
+        </svg>
+        <figcaption>Fig. 11 — Step 2. Two 3.5-in boards edge-glued to a 7.0-in panel; clamp pressure from both sides, cauls to fight cupping.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">03</div>
+    <div>
+      <h3>Rip the top to 6.75 in</h3>
+      <p>Once the glue has cured, rip one edge clean on the table saw or track saw down to the finished 6.75-in depth. This single rip also trues the panel's edge for the fence and stretcher to reference against later.</p>
+      <figure>
+        <svg viewBox="0 0 420 130" role="img" aria-label="Ripping the glued top panel from 7.0 to 6.75 inches">
+          <rect x="60" y="50" width="280" height="30" fill="var(--wood-soft)" stroke="var(--ink)" stroke-width="1.6"/>
+          <rect x="330" y="50" width="10" height="30" fill="var(--waste)" stroke="var(--ink)" stroke-width="1"/>
+          <line class="cut" x1="330" y1="45" x2="330" y2="85"/>
+          <line class="dim" x1="60" y1="95" x2="330" y2="95"/><line class="dim" x1="60" y1="91" x2="60" y2="99"/><line class="dim" x1="330" y1="91" x2="330" y2="99"/>
+          <text class="dtx" x="195" y="110" text-anchor="middle">6.75 finished</text>
+          <text class="lbx mut" x="335" y="42" text-anchor="middle">rip 0.25 off</text>
+          <text class="lbx mut" x="200" y="30" text-anchor="middle">7.0 in panel (from Step 2) → rip → 6.75 in</text>
+        </svg>
+        <figcaption>Fig. 12 — Step 3. A single rip trims the 7.0-in glued panel to the finished 6.75-in depth.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">04</div>
+    <div>
+      <h3>Rip the fence/stretcher strips</h3>
+      <p>Rip the shared 31-in blank into two 1.5-in-wide strips (Fig. 7). Crosscut one of them to 29.5 in — that one's the rear stretcher; the other stays full length as the back fence.</p>
+      <div class="callout">See Fig. 7 for the rip layout — one blank, two strips, one crosscut.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">05</div>
+    <div>
+      <h3>Drill dowels on the jig</h3>
+      <p>Jig-drill every joint before any glue goes on: leg tops (end grain, 3 per leg per Fig. 8's spacing), the matching holes in the shelf underside, straight through both risers, the legs' inner faces (for the stretcher), and the shelf's back edge plus the fence (3–4 alignment holes). Step the spacer block leg to leg so the three holes land at the same 0.875/1.75/2.625-in positions on both.</p>
+      <div class="callout">See Fig. 8 for the exact spacing and the leg → riser → shelf dowel path.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">06</div>
+    <div>
+      <h3>Dry-fit &amp; check</h3>
+      <p>Assemble the whole bridge dry — no glue — top, both leg/riser pairs, and the stretcher. Confirm the clear opening under the shelf measures <b>11.5 in</b> and that the assembly is square before you commit any glue.</p>
+      <figure>
+        <svg viewBox="0 0 460 240" role="img" aria-label="Dry-fit check: opening height and square diagonals">
+          <line class="wln" x1="120" y1="200" x2="410" y2="200"/>
+          <rect class="wd2" x="140" y="111" width="6" height="89"/>
+          <rect class="wd2" x="382" y="111" width="6" height="89"/>
+          <rect class="wd2" x="140" y="102" width="248" height="6"/>
+          <line class="dim" x1="430" y1="200" x2="430" y2="108"/><line class="dim" x1="425" y1="200" x2="435" y2="200"/><line class="dim" x1="425" y1="108" x2="435" y2="108"/>
+          <text class="dtx" x="440" y="154" transform="rotate(90 440 154)" text-anchor="middle">11.5 opening ✓</text>
+          <g class="dim">
+            <line x1="140" y1="200" x2="388" y2="108"/>
+            <line x1="146" y1="200" x2="382" y2="108"/>
+          </g>
+          <path class="arw" d="M382 112 L388 108 L386 115"/>
+          <path class="arw" d="M146 196 L140 200 L144 193"/>
+          <text class="lbx mut" x="264" y="225" text-anchor="middle">measure corner-to-corner both diagonals — equal = square, before any glue</text>
+        </svg>
+        <figcaption>Fig. 13 — Step 6. Confirm the 11.5-in opening and equal diagonals across the assembled bridge.</figcaption>
+      </figure>
+      <div class="callout warn">This is the checkpoint. There are no screws to fall back on if something's off — every joint downstream is glue-only. Fix it dry, not after the glue is on.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">07</div>
+    <div>
+      <h3>Glue legs + risers to the top</h3>
+      <p>Glue and dowel both legs — through their risers — to the shelf underside, inset 0.75 in from the front, flush with the shelf's left and right ends. Clamp and check that the reveal gap reads even on both the front and back faces of each leg before the glue sets.</p>
+      <div class="callout">See Figs. 5 &amp; 9 for the dowel directions and the reveal gap this joint creates.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">08</div>
+    <div>
+      <h3>Glue in the rear stretcher</h3>
+      <p>Glue and dowel the 29.5-in stretcher between the legs' inner faces. This is what fights racking now that the legs are committed to the top — the bridge should feel notably stiffer once it's in and clamped.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">09</div>
+    <div>
+      <h3>Glue on the back fence</h3>
+      <p>Glue and dowel the back fence along the shelf's back edge, full width. This is the last structural joint — the shelf is now a complete, liftable unit.</p>
+      <div class="callout warn">The shelf is the lifting handle from here on. The glued leg→top dowel joints carry the legs' full weight whenever you pick the piece up — lift with two hands under the top, and don't yank a single front corner.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">10</div>
+    <div>
+      <h3>Rout the roundover &amp; sand</h3>
+      <p>Rout the 1/8-in roundover on every exposed edge and corner — top faces and ends, leg outer edges, fence top — easing the reveal edges by hand. Sand the whole piece to 220.</p>
+      <figure>
+        <svg viewBox="0 0 300 130" role="img" aria-label="Perimeter view marking the roundover pass">
+          <rect class="wd" x="60" y="40" width="180" height="54"/>
+          <path class="thin" d="M60 40 A8 8 0 0 1 68 32" fill="none"/>
+          <path class="thin" d="M240 40 A8 8 0 0 0 232 32" fill="none"/>
+          <path class="thin" d="M60 94 A8 8 0 0 0 68 102" fill="none"/>
+          <path class="thin" d="M240 94 A8 8 0 0 1 232 102" fill="none"/>
+          <text class="lbx mut" x="150" y="20" text-anchor="middle">rout all 4 corners + every exposed edge</text>
+          <text class="lbx mut" x="150" y="115" text-anchor="middle">plus leg outer edges &amp; fence top — see Fig. 10</text>
+        </svg>
+        <figcaption>Fig. 14 — Step 10. Roundover pass, top-view reference; detail profile is Fig. 10.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="num">11</div>
+    <div>
+      <h3>Finish, feet &amp; optional magnets</h3>
+      <p>Apply the finish schedule below. Once cured, add the four clear silicone feet to the front and back extremes of each leg, and — if the range's side panel is magnetic — the rare-earth magnets last.</p>
+      <div class="callout good">SQUARE &amp; STABILITY CHECK: set the finished shelf in place and confirm it sits flat with no rock. Then read the weight &amp; stability section below before you load it with anything.</div>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- 11 · WEIGHT & STABILITY                                       -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Weight &amp; stability analysis</h2>
+  <p class="lede">Red oak ≈ 45 lb/ft³ (0.026 lb/in³):</p>
+
+  <table>
+    <thead><tr><th>Part</th><th class="q">Volume (in³)</th><th class="q">Weight (lb)</th></tr></thead>
+    <tbody>
+      <tr><td>Top (6.75 finished)</td><td class="q">156.9</td><td class="q">4.08</td></tr>
+      <tr><td>Legs (2)</td><td class="q">58.4</td><td class="q">1.52</td></tr>
+      <tr><td>Rear stretcher</td><td class="q">33.2</td><td class="q">0.86</td></tr>
+      <tr><td>Back fence</td><td class="q">34.9</td><td class="q">0.91</td></tr>
+      <tr><td>Risers (2)</td><td class="q">1.4</td><td class="q">0.04</td></tr>
+      <tr class="tot"><td>Finished (bare)</td><td class="q">284.8</td><td class="q">~7.4</td></tr>
+    </tbody>
+  </table>
+  <p class="note">~7.5 lb with finish and feet. Center of gravity sits ~2.9 in behind the front feet.</p>
+
+  <div class="callout warn">TIPPING — the real weakness. The base is only 3.5 in deep (leg depth) while the shelf sits 11.5 in up: this piece is inherently <b>tippy forward</b>. The wall behind it arrests backward tip only.
+  <ul>
+    <li>Vertical load on the 3/4-in front overhang: tips at ~28 lb — not a concern.</li>
+    <li>Horizontal bump at shelf height: tips at only <b>~1.8 lb empty</b> (~3 lb with jars kept to the back). This is the one to actively manage.</li>
+  </ul></div>
+
+  <h2 class="sheetnum">Anti-tip recommendations <small>in order of effectiveness</small></h2>
+  <table>
+    <tbody>
+      <tr><td class="q">1</td><td><b>Rare-earth magnets to the range's steel side panel</b> — a mechanical tether; holding force far exceeds the ~2 lb tip threshold and converts "tips over" into "needs real force." Biggest single win — confirm the range side is magnetic and keep magnets away from heat.</td></tr>
+      <tr><td class="q">2</td><td><b>Load discipline</b> — heavy jars to the back, over the legs; never on the front overhang.</td></tr>
+      <tr><td class="q">3</td><td><b>Silicone feet at the front and back extremes of each leg</b> — friction stops the base kicking out (slide-then-tip) and maximizes the effective footprint.</td></tr>
+      <tr><td class="q">4</td><td>If magnets aren't viable, consider deepening the leg footprint (a discreet forward foot) — a geometric fix, at some cost to the clean look and the 3.5-in gap fit.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================================================= -->
+  <!-- 12 · FINISH SCHEDULE                                          -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Finish schedule</h2>
+  <div class="prep">
+    <div>
+      <table>
+        <caption>Primary</caption>
+        <tbody>
+          <tr><td>General Finishes High Performance (Satin), water-based topcoat. Sand to 220; raise grain with a damp rag and knock back at 320; 3 thin coats, scuff-sand 320–400 between; cure hard before use. Grease- and moisture-resistant, wipes clean.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <caption>Alternative</caption>
+        <tbody>
+          <tr><td>Rubio Monocoat Pure (hardwax-oil), single coat. Natural matte look, easy spot-repair; re-oil occasionally near the cooktop.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- 13 · SAFETY, CHECKLIST & FOOTER                               -->
+  <!-- ============================================================= -->
+  <h2 class="sec">Safety</h2>
+  <div class="callout warn">FORWARD-TIP RISK ON A HOT COOKTOP — use the magnets + load discipline + feet above. This is the one real structural weakness of a tall, shallow-footed shelf; don't skip the mitigations.</div>
+  <div class="callout warn">THE SHELF IS THE LIFTING HANDLE — the glued leg→top dowel joints carry the legs when you lift the piece off. Lift with two hands under the top; don't yank a single front corner.</div>
+  <div class="callout warn">KEEP COMBUSTIBLES OFF THE SHELF directly over active burners — it clears the grates by only ~0.25 in.</div>
+
+  <h2 class="sec">Build-order checklist</h2>
+  <table>
+    <tbody>
+      <tr><td class="ck"><span class="box"></span></td><td>Mill &amp; label all parts; pick the best-matched boards for the top.</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Edge-glue the top (7.0), rip to 6.75, rip the shared fence/stretcher blank to 29.5 + 31.</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Drill every dowel hole on the jig before any glue goes on.</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Dry-fit; confirm 11.5-in opening and square.</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Glue up in order: legs+risers to top → stretcher → fence.</td></tr>
+      <tr><td class="ck"><span class="box"></span></td><td>Rout 1/8-in roundover; sand 220; finish; add feet + optional magnets.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">No wall or counter fasteners, no screws anywhere — glue and concealed dowels carry the whole build. Use the magnets + load discipline + feet to manage the forward-tip risk before you load the shelf.</div>
+
+  <div class="foot">
+    <span>Freestanding Rear Stove Shelf · master build document</span>
+    <span>Red oak · glue + concealed dowels only · no screws</span>
+    <span>Dry-fit → glue-up → finish → feet/magnets</span>
+  </div>
+
+</div>
