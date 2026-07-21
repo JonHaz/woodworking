@@ -14,7 +14,7 @@ right one for the stage:
 | PLAN | `project-intake` | skill | A vague idea needs scoping into a feasible brief. |
 | DESIGN | `build-planner` | skill (orchestrator) | Turn a scoped build into a dimensioned design. |
 | DESIGN | `cut-verifier` | agent + script | Confirm the numbers close before anything is presented. |
-| BUILD | `guide-renderer` | agent | Render the house-style print-ready HTML/SVG guides. |
+| BUILD | `guide-renderer` | agent + skill | Render the house-style print-ready HTML/SVG guides, and check a rendered master against its spec. |
 | BUILD | `build-companion` | skill | Coach the build at the bench; recover from off-spec cuts. |
 | LOOP | `shop-close-out` | skill | Feed a finished build back into the knowledge base. |
 
@@ -61,6 +61,22 @@ Read, in order:
   glue, pads) must be labeled as such.
 - Safety callouts are required where relevant: two-person lifts, mechanical
   top fastening, stacking limits, strap-to-wall guidance.
+- Figure scales are **per-figure** and legitimately differ — a 96-in sheet and a
+  1/8-in roundover detail cannot share a scale. Each figure must declare its own
+  scale and be internally consistent; there is no house-wide "1 in = N px".
+
+## Skill scripts
+
+- **Standard library only.** Both existing scripts import nothing outside stdlib,
+  and `verify_cutlist.py` keeps even PyYAML lazy and optional behind a
+  `ModuleNotFoundError` guard. Scripts are invoked as bare
+  `python3 .claude/skills/<skill>/scripts/<name>.py` — there is no manifest, no
+  venv, and no install step, so a hard third-party import would simply fail.
+- **Python 3.9 floor.** That is what the system `python3` resolves to on Jon's Mac.
+  No `match` statements, no runtime `X | Y` unions.
+- **Shared CLI contract:** `--format {text,json}` defaulting to `text`; exit `0`
+  clean, `1` findings, `2` usage or parse error; errors to stderr with a lowercase
+  `error: ` prefix; a pure `run()` separate from `main(argv=None)`.
 
 ## After a project milestone or close-out
 

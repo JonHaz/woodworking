@@ -1,0 +1,23 @@
+{
+  "skill": "guide-renderer",
+  "description": "Trigger evals: queries that should and should not activate guide-renderer.",
+  "positive": [
+    "Render the print-ready build guide for the stove shelf.",
+    "Make the master build document for the 4-ft bench.",
+    "Does this guide's cut diagram actually match the rip plan in the spec?",
+    "Check the rendered master against its design spec.",
+    "Why does this guide print with the figure split across two pages?",
+    "The cut-diagram legend prints as blank squares — fix the print CSS.",
+    "What scale is each figure in the cubby bench master drawn at?",
+    "Re-render the guides now that the spec was corrected."
+  ],
+  "negative": [
+    "Design me a mudroom bench from scratch.",
+    "Does this cut list close on 36 inches?",
+    "How many sheets of plywood do I really need?",
+    "I cut the shelf 1/4 in short — how do I recover?",
+    "Update the shop inventory now that the build is done.",
+    "Add a new lesson to the lessons-learned file."
+  ],
+  "notes": "Positives are requests to PRODUCE or CHECK a rendered master, or to fix how one prints. Negatives belong to build-planner (design), cut-verifier (arithmetic and yields), build-companion (bench-side recovery), or shop-close-out (knowledge updates). Note the boundary with cut-verifier: 'does the diagram match the rip_plan' is a rendering-fidelity question and belongs here; 'does the rip_plan close' is arithmetic and belongs there."
+}
