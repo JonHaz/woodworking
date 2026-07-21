@@ -1,6 +1,32 @@
 # Knowledge Bundle Update Log
 
 ## 2026-07-21
+* **Update**: Stove shelf design → **Rev 2** — re-pointed the anti-tip magnet
+  tether to the range's **magnetic black rear backguard** (confirmed magnetic
+  from the range side-profile photo), replacing the earlier "steel side panel"
+  target. The legs' front faces sit against the backguard (leg depth 3.5 = rear
+  gap 3.5), so magnets recess into the leg fronts and pull directly to it —
+  promoted from optional to the reliable primary anti-tip measure. Updated the
+  design spec, HTML master, and concept-doc stability note. No wood dimensions
+  changed; cut list re-verified `exit 0`.
+* **Creation**: Added [Freestanding rear stove shelf (2026)](/projects/freestanding-stove-shelf.md)
+  — a liftable red-oak shelf on two legs bridging the gap behind a 30-in range;
+  concealed 3/8-in dowels, no visible screws, hidden floating-top reveal, raised
+  rear fence. Design complete and **cut-verified** (`exit 0`: 5 stack-ups,
+  rear-stretcher captured check, 2-board 1×4 yield). Scaffolded
+  `projects/2026-freestanding-stove-shelf/` with a Rev 1 design spec, the verifier
+  JSON, and one self-contained `stove_shelf_master.html`. Corrected the brief's
+  leg height (12.25 → 11.125 in with the floating riser) so the height stack-up
+  closes; nested the fence + stretcher from a shared rip to hold the build at 2
+  boards. No on-hand stock consumed (red oak is a purchase).
+* **Creation**: Added [Red oak stock (Lowe's)](/shop/red-oak-stock.md) — the
+  purchasable red oak S4S sizes and lengths (from owner photos) with
+  nominal-to-actual conversions, as a sourcing reference for future builds.
+* **Update**: Appended lessons **14–17** to
+  [lessons learned](/methods/lessons-learned.md) — edge-glued solid tops
+  (dowels are alignment, not strength), overall-vs-part height, sharing one
+  ripped blank to save a board, and forward-tip disclosure for tall
+  shallow-footprint pieces.
 * **Update**: Consolidated the cubby-bench guide set into **one self-contained
   master build doc per size** — `cubby_bench_3ft_master.html` and
   `cubby_bench_4ft_master.html` — replacing the seven scattered guides (both-sizes

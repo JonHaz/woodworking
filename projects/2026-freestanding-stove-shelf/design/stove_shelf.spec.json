@@ -1,0 +1,47 @@
+{
+  "project": "Freestanding rear stove shelf (30in range, red oak)",
+  "units": "in",
+  "kerf": 0.125,
+  "material_thickness": 0.75,
+  "finished": { "width": 31, "depth": 6.75, "height": 12.25 },
+
+  "stackups": [
+    { "name": "height (leg + floating riser + top)", "equals": 12.25,
+      "segments": [11.125, 0.375, 0.75] },
+    { "name": "clear opening under shelf (leg + riser)", "equals": 11.5,
+      "segments": [11.125, 0.375] },
+    { "name": "cooktop clearance (grate height + gap)", "equals": 11.5,
+      "segments": [11.25, 0.25] },
+    { "name": "width (overhang + range + overhang)", "equals": 31,
+      "segments": [0.5, 30, 0.5] },
+    { "name": "top glue-up depth pre-rip (two 1x4)", "equals": 7.0,
+      "segments": [3.5, 3.5] }
+  ],
+
+  "captured_checks": [
+    { "name": "rear stretcher (between 2 legs)", "actual": 29.5, "span": 31, "walls": 2 }
+  ],
+
+  "parts": [
+    { "name": "top board (1x4, edge-glued pair)", "kind": "stick", "qty": 2 },
+    { "name": "leg (1x4)", "kind": "stick", "qty": 2 },
+    { "name": "fence + stretcher rip blank (1x4)", "kind": "stick", "qty": 1 },
+    { "name": "floating riser (from offcut)", "kind": "stick", "qty": 2 },
+    { "name": "3/8 in fluted dowels", "kind": "hardware", "qty": 18 },
+    { "name": "wood glue", "kind": "hardware", "qty": 1 },
+    { "name": "clear silicone feet", "kind": "hardware", "qty": 4 },
+    { "name": "rare-earth magnets -> range rear backguard (anti-tip tether)", "kind": "hardware", "qty": 4 }
+  ],
+
+  "stick_stock": {
+    "name": "red oak 1x4x6 (72 in) boards",
+    "parts": [
+      { "length": 31, "qty": 2 },
+      { "length": 31, "qty": 1 },
+      { "length": 11.125, "qty": 2 },
+      { "length": 2.5, "qty": 2 }
+    ],
+    "on_hand": [],
+    "new": [ { "length": 72, "qty": 2 } ]
+  }
+}

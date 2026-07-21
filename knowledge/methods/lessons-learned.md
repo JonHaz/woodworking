@@ -65,3 +65,31 @@ prevents it. Append, don't rewrite — history is the point.
     build → assemble → safety in one printable file), which removes the
     duplication and the "which doc is right?" ambiguity. Supersedes the
     multi-file framing in lesson 12.
+
+# Solid stock & freestanding pieces
+
+*(From the 2026 freestanding stove shelf — the first solid-hardwood, glue-only,
+freestanding build.)*
+
+14. **A jointed long-grain edge glue-up is stronger than the wood — dowels are
+    alignment, not strength.** Gluing narrow boards into a wide top (the shelf's
+    two 1×4s → a 6.75-in top) needs no reinforcement to *hold*; add dowels or
+    biscuits only to keep the faces coplanar during clamp-up (matters more with
+    no planer to flatten afterward). Rip the cured panel to final width to true
+    it.
+15. **Don't conflate overall height with a part height.** The brief listed "leg
+    height 12.25 in," but that was the *overall* height — with the top resting on
+    the legs, `leg = overall − top (− riser)`. Solve part heights from the hard
+    fit constraints (clear opening, cooktop clearance), and let the verifier's
+    height stack-up catch the mix-up (`12.25 + 0.75 = 13.0 ≠ 12.25` fails).
+16. **Two narrow parts can share one ripped blank — it can save a whole board.**
+    The back fence (31 in) and rear stretcher (29.5 in) both rip from a single
+    3.5-in-wide × 31-in blank as two 1.5-in strips, keeping the build to 2 boards
+    instead of 3. The 1-D stick check can't see a rip, so model the shared blank
+    as **one length** in `stick_stock` and spell out the rip in the cut list.
+17. **Tall, shallow-footprint pieces tip forward — disclose the number, not just
+    the weight.** A shelf 11.5 in up on a 3.5-in-deep base tips at only a ~1.8 lb
+    horizontal bump (empty). Report the horizontal-bump threshold and mitigate
+    with a tether (rare-earth magnets to an adjacent steel appliance), load
+    discipline (weight to the back / over the legs), and feet at the footprint
+    extremes. A wall behind arrests backward tip only.
