@@ -10,7 +10,10 @@
   plan, and 3-ft build guide, so on-hand stock is consumed first. Fixed the 3-ft
   build guide's Step-5 divider mark (24 in → **22.75 in** / 11-in spacer) so the
   three cubbies come out equal. Corrected the "2 spare rungs" wording to zero
-  spare in the 2×4 cut diagram and cut/shopping sheet.
+  spare in the 2×4 cut diagram and cut/shopping sheet. Corrected the plywood
+  cut-diagram illustration in the 3-ft build guide (Fig. 3) and the cut/shopping
+  sheet to draw 5 dividers per 13.5-in strip (was 4), matching the authoritative
+  plywood cut diagram (5 + 5 + 2 = 12).
 * **Initialization**: Created the OKF v0.1 bundle structure (shop / methods / projects).
 * **Creation**: Added [Shop tools](/shop/tools.md) inventory, seeded as inferred from cubby-bench build sessions — pending owner confirmation.
 * **Creation**: Added [Materials on hand](/shop/materials-on-hand.md) with measured 2×4/2×2 offcut stock and Phase 1 allocations.
