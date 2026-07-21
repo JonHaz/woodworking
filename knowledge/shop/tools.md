@@ -13,8 +13,9 @@ purchase) · **not owned** (verified absent). AI assistants: design only around
 `not owned`-tool approaches only as clearly labeled alternatives.
 
 > **STATUS (2026-07-21):** Jon confirmed his saws, drill/impact driver, router,
-> dowel jig, and the specialty power tools below. Still `inferred` and pending
-> his confirmation: countersink bit, dedicated sander type, and clamp count/type.
+> dowel jig, orbital sander, clamps, and the specialty power tools below. The only
+> item still `inferred` is the countersink bit (near-certain); basic layout tools
+> (tape, square, pencil) are assumed.
 
 # Cutting
 
@@ -48,13 +49,13 @@ purchase) · **not owned** (verified absent). AI assistants: design only around
 | Tool | Status | Notes |
 |---|---|---|
 | Tape measure, square, pencil | inferred | Standard layout. |
-| Clamps (count/type unknown) | inferred | Assembly guide assumes clamping during glue-up — count/type still to confirm. |
+| Clamps | confirmed | Multiple on hand — enough for the glue-ups in these builds. |
 
 # Finishing
 
 | Tool | Status | Notes |
 |---|---|---|
-| Sander (type unknown) | inferred | Plywood edges are filled + sanded, no banding. The oscillating tool's sanding pad works for small areas, but a dedicated orbital/random-orbit sander is likely — confirm. |
+| Orbital sander | confirmed | Filling + sanding plywood edges and faces (no edge banding). The oscillating tool's pad covers tight spots. |
 
 # Explicit preferences (treat as standing constraints)
 
