@@ -1,6 +1,15 @@
 # Knowledge Bundle Update Log
 
 ## 2026-07-21
+* **Update**: Consolidated the cubby-bench guide set into **one self-contained
+  master build doc per size** — `cubby_bench_3ft_master.html` and
+  `cubby_bench_4ft_master.html` — replacing the seven scattered guides (both-sizes
+  master plan; 3-ft build/assembly/plywood-diagram/2×4-diagram/shopping-sheet; 4-ft
+  build guide). Generated the previously-missing 4-ft cut diagrams, shopping list,
+  and assembly steps, all cut-verified (`exit 0`: 8 rails @45 + 16 rungs @11 from 6
+  new sticks; 4 sheets). Codified the format as the standing deliverable contract in
+  `.claude/agents/guide-renderer.md` (+ `CLAUDE.md`, `build-planner`): future plans
+  emit one `<name>_master.html` per size, not a file set.
 * **Update**: Reconciled documentation drift across the 2026 cubby-bench guide
   set (see [project concept](/projects/cubby-benches-2026.md)). Made
   *fill-and-sand* the finish method everywhere — removed edge banding from the

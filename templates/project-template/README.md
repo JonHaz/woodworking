@@ -8,7 +8,7 @@ One paragraph: what's being built and why.
 
 ## Structure
 - `design/` — dimensioned spec (markdown), revisions numbered.
-- `guides/` — print-ready HTML: build guide, cut diagrams, shopping sheet, assembly guide.
+- `guides/` — print-ready HTML: one self-contained master build doc per size/variant (shopping list, to-scale cut diagrams, build + assembly steps, safety).
 - `photos/` — progress and final photos (optional).
 
 ## Close-out checklist

@@ -56,3 +56,12 @@ prevents it. Append, don't rewrite — history is the point.
 12. **Print-ready HTML guides with to-scale SVG diagrams** are the house
     style: title block, spec strip, numbered steps with figures, check-off
     boxes on shopping/cut sheets, safety callouts flagged.
+13. **One consolidated master per size beats a scattered guide set.** The 2026
+    cubby set first shipped as seven separate files (build guide, assembly, two
+    cut diagrams, shopping sheet, plus a both-sizes plan) — the same cut list
+    lived in five of them and the CSS in all seven, so any fix had to land in
+    many places and the 4-ft set was left half-finished. The house deliverable is
+    now **one self-contained `<name>_master.html` per size** (shopping → cut →
+    build → assemble → safety in one printable file), which removes the
+    duplication and the "which doc is right?" ambiguity. Supersedes the
+    multi-file framing in lesson 12.

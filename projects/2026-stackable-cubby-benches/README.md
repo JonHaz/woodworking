@@ -8,12 +8,11 @@ section with zero overhang so they sit flush in runs and stack via recessed
 - `stackable_3ft_cubby_bench_rev2.md` — dimensioned, corrected design spec.
 
 ## guides/ (print-ready HTML — open in a browser, print or save as PDF)
-- `cubby_bench_master_build_plan.html` — both sizes, phased materials + build order.
-- `cubby_bench_3ft_build_guide.html` — illustrated 10-step build, 3-ft.
-- `cubby_bench_4ft_build_guide.html` — 4-ft companion, compatibility diagrams.
-- `cubby_bench_3ft_cut_shopping_sheet.html` — check-off shopping + cut lists (uses on-hand offcuts; no edge banding).
-- `cubby_bench_3ft_plywood_cut_diagram.html` — all 4 sheets, to scale, with yield check.
-- `cubby_bench_3ft_2x4_cut_diagram.html` — offcuts + 3 new sticks → 6 bases.
-- `cubby_bench_3ft_assembly_guide.html` — one-bench assembly, 9 steps with figures.
+Two self-contained **master build docs** — each has everything to build that size
+(shopping list, cut lists + to-scale cut diagrams, build + assembly steps, safety):
+- `cubby_bench_3ft_master.html` — the 3-ft bench. 6-bench run: 4 sheets ¾ ply + 3 new 2×4 + 8 on-hand 54-1/8 offcuts.
+- `cubby_bench_4ft_master.html` — the 4-ft bench. 4-bench run: 4 sheets ¾ ply + 6 new 2×4.
+
+Build order: finish the six 3-ft benches (Phase 1) first, then the four 4-ft (Phase 2).
 
 Knowledge summary: [`knowledge/projects/cubby-benches-2026.md`](../../knowledge/projects/cubby-benches-2026.md)

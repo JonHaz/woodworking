@@ -35,10 +35,11 @@ no face frame, filled-and-sanded edges (no banding).
 
 # Documents (repo)
 
-- Master build plan (both sizes, phased): `projects/2026-stackable-cubby-benches/guides/cubby_bench_master_build_plan.html`
-- 3-ft build guide · assembly guide · plywood cut diagram · 2×4 cut diagram · cut-and-shopping sheet: same `guides/` folder
-- 4-ft companion build guide: same `guides/` folder
-- Dimensioned design spec (Rev 2): `projects/2026-stackable-cubby-benches/design/stackable_3ft_cubby_bench_rev2.md`
+Each size has one self-contained master build doc (shopping list, cut diagrams,
+build + assembly, safety) in `projects/2026-stackable-cubby-benches/guides/`:
+- **3-ft:** `cubby_bench_3ft_master.html` — Phase 1 (six benches).
+- **4-ft:** `cubby_bench_4ft_master.html` — Phase 2 (four benches).
+- Dimensioned design spec (Rev 3): `projects/2026-stackable-cubby-benches/design/stackable_3ft_cubby_bench_rev2.md`
 
 # Lessons fed back
 
