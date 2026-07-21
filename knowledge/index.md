@@ -6,6 +6,7 @@ okf_version: "0.1"
 
 * [Shop tools](shop/tools.md) - Tools Jon owns; build plans must design around confirmed entries only.
 * [Materials on hand](shop/materials-on-hand.md) - Lumber and sheet-good stock in the shop, with planned allocations; consume this before buying.
+* [Red oak stock (Lowe's)](shop/red-oak-stock.md) - Purchasable red oak S4S sizes and lengths, nominal-to-actual; a sourcing reference for future builds.
 
 # Methods
 
@@ -14,3 +15,4 @@ okf_version: "0.1"
 # Projects
 
 * [Stackable modular cubby benches (2026)](projects/cubby-benches-2026.md) - Ten modular benches — six 3-ft and four 4-ft — that sit flush side-by-side and stack for storage.
+* [Freestanding rear stove shelf (2026)](projects/freestanding-stove-shelf.md) - A liftable red-oak shelf on two legs bridging the gap behind a 30-in range; concealed dowels, no visible screws.
