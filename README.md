@@ -13,8 +13,8 @@ Two halves:
    tools owned, materials on hand, and lessons learned. This is the context an
    AI assistant reads **before** generating any build plan.
 2. **`projects/`** — one folder per project, holding the final design docs and
-   the print-ready HTML build guides (cut diagrams, shopping sheets, assembly
-   guides).
+   a print-ready HTML **master build doc per size** (each with the shopping list,
+   to-scale cut diagrams, build + assembly steps, and safety).
 
 `CLAUDE.md` tells Claude (Code, Cowork, or chat) how to use both halves.
 `.claude/skills/build-planner/` packages the build-planning workflow as a
@@ -36,8 +36,7 @@ woodworking/
 │   └── 2026-stackable-cubby-benches/
 │       ├── README.md
 │       ├── design/            ← dimensioned design spec (markdown)
-│       └── guides/            ← print-ready HTML: build guides, cut diagrams,
-│                                shopping sheet, assembly guide
+│       └── guides/            ← one self-contained HTML master build doc per size
 ├── templates/
 │   └── project-template/      ← starting structure for the next project
 └── .claude/

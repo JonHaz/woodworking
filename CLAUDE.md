@@ -52,10 +52,11 @@ Read, in order:
 - Verify every cut list closes on the finished dimensions before presenting it
   — run `cut-verifier` (`.claude/skills/cut-verifier/scripts/verify_cutlist.py`)
   on the design spec. An `exit 0` is required, not optional.
-- Deliverables: dimensioned markdown spec in `design/`, plus print-ready,
-  self-contained HTML guides in `guides/` (build sequence, cut diagrams to
-  scale, shopping sheet with check-off boxes, assembly guide). Match the
-  visual style of `projects/2026-stackable-cubby-benches/guides/`.
+- Deliverables: dimensioned markdown spec in `design/`, plus **one print-ready,
+  self-contained HTML master per size/variant** in `guides/` — a single file with
+  the shopping list, to-scale cut diagrams, the build-and-assembly sequence, and
+  safety callouts (not a scattered set of separate guides). Match the visual style
+  of the 2026 cubby-bench masters (`projects/2026-stackable-cubby-benches/guides/`).
 - Firm numbers (sheet/stick counts from yield math) vs. estimates (screws,
   glue, pads) must be labeled as such.
 - Safety callouts are required where relevant: two-person lifts, mechanical

@@ -37,8 +37,9 @@ base after a build — that is `shop-close-out`.
    `cut-verifier` agent (or run its script) on the spec. If it exits `1`, fix the design
    using the corrected numbers it returns and re-run. Only an `exit 0` spec earns a cut list.
 5. **Delegate the guides to `guide-renderer`.** Hand the passing spec to the
-   `guide-renderer` agent, which produces the house-style, self-contained HTML/SVG guide
-   set (build guide, to-scale cut diagrams, check-off shopping sheet, assembly guide).
+   `guide-renderer` agent, which produces **one self-contained HTML master build
+   document per size/variant** (shopping list, to-scale cut diagrams, the build +
+   assembly sequence, and safety — all in one file).
 6. **Write the dimensioned markdown spec** to `projects/<year>-<name>/design/` and the
    guides to `projects/<year>-<name>/guides/`. Separate firm counts from estimates and
    flag safety callouts (two-person lifts, mechanical top fastening, stacking limits).
@@ -53,14 +54,14 @@ base after a build — that is `shop-close-out`.
 | `knowledge/shop/materials-on-hand.md` | Every design — allocate on-hand first. |
 | `knowledge/methods/lessons-learned.md` | Every design — apply the relevant lessons. |
 | `references/spec-schema.md` | When emitting the spec to verify (mirrors cut-verifier's contract). |
-| `projects/2026-stackable-cubby-benches/guides/` | The house style `guide-renderer` matches. |
+| `projects/2026-stackable-cubby-benches/guides/` | The house style `guide-renderer` matches (the per-size masters). |
 
 ## Common output template
 
 - A dimensioned markdown spec in `design/` with a finished-dimensions table and cut lists.
 - A **verifier verdict line** ("cut-verifier: ALL CHECKS PASS — width, height, base-depth
   stack-ups and 3 captured panels closed") so the numbers are visibly blessed.
-- The house-style HTML guides in `guides/`, produced by `guide-renderer`.
+- The house-style HTML master(s) in `guides/` — one per size/variant — produced by `guide-renderer`.
 - A shopping summary splitting firm counts (sheets, sticks) from estimates (screws, glue, pads),
   naming which on-hand stock the plan consumes.
 
