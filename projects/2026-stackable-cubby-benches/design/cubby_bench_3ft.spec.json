@@ -1,0 +1,63 @@
+{
+  "project": "3ft stackable cubby bench (per-bench geometry, 6-bench stock)",
+  "units": "in",
+  "kerf": 0.125,
+  "material_thickness": 0.75,
+  "finished": { "width": 36, "depth": 17, "height": 18.5 },
+
+  "stackups": [
+    { "name": "width", "equals": 36,
+      "segments": [0.75, 11, 0.75, 11, 0.75, 11, 0.75] },
+    { "name": "height", "equals": 18.5,
+      "segments": [3.5, 14.25, 0.75] },
+    { "name": "base_depth", "equals": 14,
+      "segments": [1.5, 11, 1.5] }
+  ],
+
+  "captured_checks": [
+    { "name": "bottom shelf (between 2 sides)", "actual": 34.5, "span": 36, "walls": 2 },
+    { "name": "rear stretcher (between 2 sides)", "actual": 34.5, "span": 36, "walls": 2 },
+    { "name": "divider height (sits on shelf)", "actual": 13.5, "span": 14.25, "walls": 1 }
+  ],
+
+  "parts": [
+    { "name": "top", "kind": "sheet", "qty": 6, "w": 36, "d": 17 },
+    { "name": "bottom shelf", "kind": "sheet", "qty": 6, "w": 34.5, "d": 17 },
+    { "name": "side panel", "kind": "sheet", "qty": 12, "w": 14.25, "d": 17 },
+    { "name": "divider", "kind": "sheet", "qty": 12, "w": 13.5, "d": 16.25 },
+    { "name": "rear stretcher", "kind": "sheet", "qty": 12, "w": 34.5, "d": 3 },
+    { "name": "base rail/rung 2x4", "kind": "stick", "qty": 30, "w": 3.5, "d": 1.5 },
+    { "name": "construction screws", "kind": "hardware", "qty": 200 },
+    { "name": "wood glue", "kind": "hardware", "qty": 1 },
+    { "name": "rubber pads", "kind": "hardware", "qty": 36 }
+  ],
+
+  "stick_stock": {
+    "name": "2x4 base stock",
+    "parts": [
+      { "length": 33, "qty": 12 },
+      { "length": 11, "qty": 18 }
+    ],
+    "on_hand": [ { "length": 54.125, "qty": 8 } ],
+    "new": [ { "length": 96, "qty": 3 } ]
+  },
+
+  "sheet_stock": {
+    "name": "3/4 in plywood",
+    "sheet": [48, 96],
+    "thickness": 0.75,
+    "count": 4,
+    "parts": [
+      { "w": 36, "d": 17, "qty": 6 },
+      { "w": 34.5, "d": 17, "qty": 6 },
+      { "w": 14.25, "d": 17, "qty": 12 },
+      { "w": 13.5, "d": 16.25, "qty": 12 },
+      { "w": 34.5, "d": 3, "qty": 12 }
+    ],
+    "rip_plan": [
+      { "name": "17-in strip (top+shelf+side)", "length": 96, "crosscuts": [36, 34.5, 14.25] },
+      { "name": "13.5-in divider strip", "length": 96, "crosscuts": [16.25, 16.25, 16.25, 16.25, 16.25] },
+      { "name": "sheet-4 side strip", "length": 96, "crosscuts": [14.25, 14.25, 14.25, 14.25, 14.25, 14.25] }
+    ]
+  }
+}
