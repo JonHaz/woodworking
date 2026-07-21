@@ -14,3 +14,7 @@ Icon
 # Temp / logs
 *.tmp
 *.log
+
+# Python (skill scripts)
+__pycache__/
+*.pyc

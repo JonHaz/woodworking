@@ -1,0 +1,20 @@
+{
+  "skill": "shop-close-out",
+  "description": "Trigger evals: queries that should and should not activate shop-close-out.",
+  "positive": [
+    "I finished the six benches — update the shop.",
+    "Log this build and record what I have left over.",
+    "Close out Phase 1 of the cubby benches.",
+    "I bought a new random-orbit sander; add it to my tools.",
+    "Add a lesson: label parts before glue-up next time.",
+    "Mark the cubby-bench project complete."
+  ],
+  "negative": [
+    "Design a new shelf for the shop.",
+    "Does this cut list close on 48 inches?",
+    "Help me scope a new workbench idea.",
+    "Render the build guide HTML for this project.",
+    "How many sheets of plywood do I need?"
+  ],
+  "notes": "Positives are post-build knowledge updates (materials, lessons, tools, status, log). Negatives are design (build-planner), verification (cut-verifier), scoping (project-intake), or rendering (guide-renderer)."
+}

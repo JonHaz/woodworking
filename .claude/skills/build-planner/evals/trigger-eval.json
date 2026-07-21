@@ -1,0 +1,20 @@
+{
+  "skill": "build-planner",
+  "description": "Trigger evals: queries that should and should not activate build-planner.",
+  "positive": [
+    "Design me a 4-ft version of the cubby bench.",
+    "Plan a plywood storage cabinet for the garage, 30 inches wide.",
+    "Revise this bench design to use 3/4 plywood instead of MDF.",
+    "I need a cut list and shopping list for a workbench.",
+    "Turn the mudroom-bench brief into an actual design.",
+    "Spec out a bookshelf that fits a 72 by 36 inch wall."
+  ],
+  "negative": [
+    "Does this cut list close on 36 inches?",
+    "I only have a vague idea for a coffee table — help me scope it.",
+    "I finished the benches; update the shop inventory.",
+    "Render the print-ready HTML build guide from this spec.",
+    "What tools do I have confirmed?"
+  ],
+  "notes": "Positives are design/spec/cut-list requests. Negatives belong to cut-verifier (bare check), project-intake (scoping), shop-close-out (logging), or guide-renderer (rendering)."
+}

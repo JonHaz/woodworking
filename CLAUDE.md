@@ -3,6 +3,27 @@
 This repo is Jon's DIY woodworking build system. Follow these rules in every
 session that touches it.
 
+## Skills and agents (the build pipeline)
+
+Work flows through five focused capabilities, not one monolith. Route to the
+right one for the stage:
+
+| Stage | Capability | Kind | Use when |
+|---|---|---|---|
+| PLAN | `project-intake` | skill | A vague idea needs scoping into a feasible brief. |
+| DESIGN | `build-planner` | skill (orchestrator) | Turn a scoped build into a dimensioned design. |
+| DESIGN | `cut-verifier` | agent + script | Confirm the numbers close before anything is presented. |
+| BUILD | `guide-renderer` | agent | Render the house-style print-ready HTML/SVG guides. |
+| LOOP | `shop-close-out` | skill | Feed a finished build back into the knowledge base. |
+
+Pipeline order: **project-intake → build-planner → cut-verifier (gate) →
+guide-renderer → shop-close-out.** `build-planner` is the orchestrator: it emits
+a structured design spec (schema:
+`.claude/skills/cut-verifier/references/spec-schema.md`), gates it through
+`cut-verifier` (never present a cut list the verifier has not passed), then
+delegates guides to `guide-renderer`. The verifier's script is the source of
+truth for cut-list math — do not hand-estimate stack-ups or yields.
+
 ## Before generating ANY build plan, cut list, or design
 
 Read, in order:
@@ -21,8 +42,9 @@ Read, in order:
 
 - Dimensions in inches; sheet goods assumed 4×8 unless noted; allow ~1/8 in
   saw kerf per cut in all yield math.
-- Verify every cut list closes on the finished dimensions (width, depth, and
-  height stack-ups) before presenting it.
+- Verify every cut list closes on the finished dimensions before presenting it
+  — run `cut-verifier` (`.claude/skills/cut-verifier/scripts/verify_cutlist.py`)
+  on the design spec. An `exit 0` is required, not optional.
 - Deliverables: dimensioned markdown spec in `design/`, plus print-ready,
   self-contained HTML guides in `guides/` (build sequence, cut diagrams to
   scale, shopping sheet with check-off boxes, assembly guide). Match the
@@ -33,6 +55,8 @@ Read, in order:
   top fastening, stacking limits, strap-to-wall guidance.
 
 ## After a project milestone or close-out
+
+Run the `shop-close-out` skill, which performs this ritual:
 
 1. Update `knowledge/shop/materials-on-hand.md` (consume used stock, add
    leftovers with measured sizes).

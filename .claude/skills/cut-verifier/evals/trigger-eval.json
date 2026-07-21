@@ -1,0 +1,21 @@
+{
+  "skill": "cut-verifier",
+  "description": "Trigger evals: queries that should and should not activate cut-verifier.",
+  "positive": [
+    "Does this cut list actually close on 36 inches?",
+    "Verify the dimensions on my bench design before I cut anything.",
+    "Will these shelf parts fit between the sides?",
+    "Check the width stack-up for the cubby bench.",
+    "How many sheets of plywood do I really need for six benches?",
+    "Did I allocate my on-hand 2x4 offcuts before adding new ones to the list?",
+    "My cubby openings came out uneven — which number is wrong?"
+  ],
+  "negative": [
+    "Design me a mudroom bench from scratch.",
+    "Draw the print-ready build guide for this project.",
+    "Update the shop inventory now that the build is done.",
+    "What finish should I use on plywood edges?",
+    "Add a new lesson to the lessons-learned file."
+  ],
+  "notes": "Positives are all requests to CHECK numbers/fit/yield. Negatives belong to build-planner (design), guide-renderer (guides), or shop-close-out (knowledge updates)."
+}

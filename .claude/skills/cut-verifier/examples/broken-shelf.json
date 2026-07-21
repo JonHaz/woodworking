@@ -1,0 +1,23 @@
+{
+  "project": "BROKEN example — captured-panel + stack-up errors (lessons #1, #3)",
+  "units": "in",
+  "kerf": 0.125,
+  "material_thickness": 0.75,
+  "finished": { "width": 36, "depth": 17, "height": 18.5 },
+
+  "stackups": [
+    { "name": "width (drew 12-in openings, does not close)", "equals": 36,
+      "segments": [0.75, 12, 0.75, 12, 0.75, 12, 0.75] }
+  ],
+
+  "captured_checks": [
+    { "name": "bottom shelf listed at full width", "actual": 36, "span": 36, "walls": 2 }
+  ],
+
+  "stick_stock": {
+    "name": "2x4 base stock (forgot to allocate on-hand)",
+    "parts": [ { "length": 33, "qty": 12 }, { "length": 11, "qty": 18 } ],
+    "on_hand": [],
+    "new": [ { "length": 96, "qty": 3 } ]
+  }
+}
