@@ -1,0 +1,24 @@
+{
+  "project": "seeded-defect fixture — exercises every gating check",
+  "units": "in",
+  "kerf": 0.125,
+  "material_thickness": 0.75,
+  "finished": { "width": 20, "depth": 10, "height": 30 },
+  "stackups": [
+    { "name": "height", "equals": 30, "segments": [0.75, 28.5, 0.75] }
+  ],
+  "captured_checks": [
+    { "name": "shelf", "actual": 18.5, "span": 20, "walls": 2 }
+  ],
+  "parts": [
+    { "name": "side", "kind": "sheet", "qty": 2, "w": 30, "d": 10 }
+  ],
+  "sheet_stock": {
+    "name": "fixture ply",
+    "sheet": [48, 96],
+    "thickness": 0.75,
+    "count": 1,
+    "parts": [ { "w": 30, "d": 10, "qty": 2 } ],
+    "rip_plan": [ { "name": "10-in strip", "length": 96, "crosscuts": [30, 30] } ]
+  }
+}

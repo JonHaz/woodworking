@@ -1,0 +1,122 @@
+{
+  "_comment": "Expected verify_render findings for the shipped masters. Non-empty by design: each info entry is a known gap (undeclared figure scales; schema fields the render gate cannot check yet). The set is expected to SHRINK. test_verify_render.py fails on drift in EITHER direction \u2014 a new finding, or a listed finding that no longer appears (remove it here when it is fixed).",
+  "guides": {
+    "cubby_bench_3ft_master.html": {
+      "counts": {
+        "fail": 0,
+        "warn": 0,
+        "info": 9
+      },
+      "findings": [
+        [
+          "G-GAP",
+          "info",
+          "rip_plan"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "rip_plan"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "rip_plan.crosscuts"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "sheet_stock.parts"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "stick_stock.parts"
+        ],
+        [
+          "G-SCALE",
+          "info",
+          "figure 1"
+        ],
+        [
+          "G-SCALE",
+          "info",
+          "figure 2"
+        ],
+        [
+          "G-SCALE",
+          "info",
+          "figure 3"
+        ],
+        [
+          "R-SCALE",
+          "info",
+          "figures 1,2,3,4,5,6,7,8,9,10,11,12,13,14"
+        ]
+      ]
+    },
+    "cubby_bench_4ft_master.html": {
+      "counts": {
+        "fail": 0,
+        "warn": 0,
+        "info": 7
+      },
+      "findings": [
+        [
+          "G-GAP",
+          "info",
+          "rip_plan"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "rip_plan"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "rip_plan.crosscuts"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "sheet_stock.parts"
+        ],
+        [
+          "G-GAP",
+          "info",
+          "stick_stock.parts"
+        ],
+        [
+          "G-SCALE",
+          "info",
+          "figure 1"
+        ],
+        [
+          "R-SCALE",
+          "info",
+          "figures 1,2,3,4,5,6,7,8,9,10"
+        ]
+      ]
+    },
+    "stove_shelf_master.html": {
+      "counts": {
+        "fail": 0,
+        "warn": 0,
+        "info": 2
+      },
+      "findings": [
+        [
+          "G-GAP",
+          "info",
+          "stick_stock.parts"
+        ],
+        [
+          "R-SCALE",
+          "info",
+          "figures 1,2,3,4,5,6,7,8,9,10,11,12,13,14"
+        ]
+      ]
+    }
+  }
+}
