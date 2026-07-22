@@ -173,12 +173,15 @@
     .step{grid-template-columns:1fr;gap:6px}
     .num{border-top:none;padding-top:0}
   }
+  @page{size:letter portrait;margin:12mm 10mm}
   @media print{
-    body{background:#fff}
+    body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .sheet{max-width:none;padding:0 8px}
-    .step,figure,table,.spec{page-break-inside:avoid}
-    h2.sec{page-break-after:avoid}
-    h2.sheetnum{page-break-after:avoid}
+    .step,figure,table,.spec{page-break-inside:avoid;break-inside:avoid}
+    h2.sec{page-break-after:avoid;break-after:avoid}
+    h2.sheetnum{page-break-after:avoid;break-after:avoid}
+    h2,h3,figcaption{orphans:3;widows:3}
+    p,li{orphans:2;widows:2}
   }
 </style>
 

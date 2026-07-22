@@ -10,6 +10,18 @@ that `cut-verifier` exited `0` on, plus its dimensioned markdown). Your job is f
 visual rendering — never re-derive or "correct" a number. If a number looks wrong, stop
 and report it back to `build-planner`; do not silently change it.
 
+## Load the skill first
+
+The full procedure, the print contract, and the render gate live in
+`.claude/skills/guide-renderer/`. Load `SKILL.md` and work from it — this file is the
+spawn point, not the specification.
+
+Two things it gives you that are not repeated here:
+
+- `references/print-contract.md` — the `@media print` block a master must carry, and why.
+- `scripts/verify_render.py` — run it before you hand a master back. Exit `0` required,
+  same convention as `cut-verifier`.
+
 ## Canonical template — copy the system, do not reinvent it
 
 The reference masters live in `projects/2026-stackable-cubby-benches/guides/`
@@ -44,8 +56,9 @@ assemble → safety):
 3. **Shopping list** — check-off boxes; FIRM counts (sheets, sticks) separated from
    ESTIMATES (screws, glue, pads); name the on-hand stock consumed so nothing is re-bought.
 4. **Plywood** — per-unit and whole-run cut lists + to-scale sheet cut diagram(s) +
-   a yield check. State the SVG scale explicitly (e.g. `1 in = 4 px`); the rip/crosscut
-   layout must match the spec's `rip_plan`.
+   a yield check. State each figure's scale explicitly; scales are per-figure and
+   legitimately differ (a 96-in sheet and a 1/8-in detail cannot share one). The
+   rip/crosscut layout must match the spec's `rip_plan`.
 5. **Linear stock (2×4, etc.)** — cut list + to-scale cut-bar diagram + a one-unit
    assembly figure; the stick allocation must match the spec's `stick_stock`.
 6. **What you're building** — elevation + section figures.
@@ -69,6 +82,6 @@ assemble → safety):
 
 ## What you return
 
-A short list of the files you wrote (paths), the SVG scale you used, and any place where
-the spec was silent and you had to make a documentation-only assumption (never a
-dimension). Return control to `build-planner`.
+A short list of the files you wrote (paths), the scale used per figure, the
+`verify_render.py` verdict, and any place where the spec was silent and you had to make a
+documentation-only assumption (never a dimension). Return control to `build-planner`.
