@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<title>Seeded-defect fixture — do not ship</title>
+<style>
+  /* deliberately defective: no @page, no print-color-adjust, no break-inside,
+     and the palette tokens are absent. Every gating check should fire. */
+  :root{ --ink:#171512 }
+  body{ font-family: Arial }
+  @media print{ body{background:#fff} }
+  @import url('https://cdn.example.com/evil.css');
+</style>
+</head><body>
+<div class="sheet">
+  <div class="spec"><span>20 in wide</span><span>10 in deep</span></div>
+  <script src="https://cdn.example.com/tracker.js"></script>
+  <figure>
+    <svg viewBox="0 0 520 240" width="520" height="240" role="img" aria-label="broken figure">
+      <rect x="0" y="0" width="432" height="45" fill="#eee"></rect>
+    </svg>
+    <figcaption>Fig. 1 — a figure that declares width/height and no scale.</figcaption>
+  </figure>
+</div>
+</body></html>

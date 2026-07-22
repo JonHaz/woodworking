@@ -35,11 +35,12 @@ Do not use this skill to design a piece (`build-planner`), to do cut-list arithm
    self-contained file per size/variant — never a scattered set.
 3. **Check the render:**
    `python3 scripts/verify_render.py --spec <spec.json> --guide <master.html> --format text`
-   Use `--format json` when another skill or agent consumes the result.
-   *(Not yet built — see "Status" below. Until it lands, check by hand against
-   `references/print-contract.md` and the spec's `rip_plan`/`sheet_stock`/`stick_stock`.)*
-4. **Read the exit code, not just the text.** `0` = every check passes; `1` = at least one
-   failed; `2` = a file could not be parsed. Do not hand a master back on a `1`.
+   Use `--format json` when another skill or agent consumes the result. Add `--strict` to
+   treat advisory (warn) findings as gating.
+4. **Read the exit code, not just the text.** `0` = clean; `1` = a gating finding; `2` = a
+   file could not be parsed. Findings carry a level — `fail` gates, `warn` is advisory,
+   `info` is a census note (a gap in the spec schema, not a defect in this guide). Do not
+   hand a master back on a `1`.
 5. **Report what you assumed.** List the files written, the scale used per figure, and any
    place the spec was silent and you made a documentation-only assumption — never a
    dimension. Return control to `build-planner`.
@@ -49,17 +50,21 @@ Do not use this skill to design a piece (`build-planner`), to do cut-list arithm
 | File | When to load |
 |---|---|
 | `references/print-contract.md` | Whenever you write or fix a `@media print` block — the rules and why each exists. |
+| `references/render-gate.md` | The check families `verify_render.py` runs and the baseline discipline. |
+| `scripts/verify_render.py` | The render gate; run it, do not reimplement its comparisons in prose. |
 | `.claude/skills/cut-verifier/references/spec-schema.md` | The field-by-field contract for the spec you are rendering from. |
 | `projects/2026-stackable-cubby-benches/guides/` | The reference masters. Read one before rendering a new one — this is the visual system until it is extracted. |
-| `scripts/verify_render.py` | The render gate. **Not yet built** — see Status. |
 
 ## Status
 
-This skill is being built in stages. What exists today: the procedure above, the print
-contract, and the trigger evals. Still to come, in order — a canonical style block
-extracted from the three shipped masters, then `scripts/verify_render.py` as the render
-gate, then machine-readable per-figure scale declarations derived by that gate rather than
-hand-guessed. Until the gate exists, steps 3–4 are a manual check.
+This skill is being built in stages. Done: the procedure above, the print contract, the
+trigger evals, and `scripts/verify_render.py` — the render gate, with a non-empty
+finding baseline and a `test_verify_render.py` regression test. Still to come, in order —
+a canonical style block extracted from the three shipped masters (so the visual system is
+one source, not "read a master and copy it"); an additive spec-schema extension driven by
+the gate's `G-GAP` census (part ids, rip widths, labelled crosscuts); and a generator for
+sheet cut diagrams that emits the machine-readable `data-scale` the gate's `R-SCALE`
+census is currently asking for.
 
 ## Common output template
 
